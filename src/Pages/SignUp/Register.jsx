@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+import { imageUpload } from "../../api/utils";
 
 const SignUp = () => {
   const [districts,setDistricts] = useState([]);
@@ -36,6 +37,13 @@ const SignUp = () => {
     const image = form.image.files[0]
 
     console.log(name, email, blood_group, password, confirm_password, district, upazila, image);
+  try{
+// image Upload
+const imageData = await imageUpload(image);
+console.log(imageData);
+  }catch(err){
+    console.log(err);
+  }
 
 
   }
