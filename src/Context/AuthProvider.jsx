@@ -10,6 +10,7 @@ import {
     updateProfile,
 } from 'firebase/auth'
 import { app } from "../Configs/firebase.config";
+import { clearCookie } from "../api/auth";
 
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
@@ -31,10 +32,11 @@ const AuthProvider = ({ children }) => {
     }
 
     // logout
-    const logOut = () => {
-        setLoading(true);
-        return signOut();
-    }
+    const logOut = async () => {
+        setLoading(true)
+        await clearCookie()
+        return signOut(auth)
+      }
     // updateUserProfile
     const updateUserProfile = (name, photo) => {
         setLoading(true);
