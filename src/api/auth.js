@@ -9,7 +9,7 @@ export const saveUser = async (user,blood_group,district,upazila) => {
         blood_group,
         district,
         upazila,
-        role: 'donar',
+        role: 'Donar',
         status: 'active'
     }
     const { data } = await axiosSecure.put(`/users/${user?.email}`, currentUser);
