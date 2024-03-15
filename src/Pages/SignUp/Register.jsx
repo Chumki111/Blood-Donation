@@ -1,28 +1,34 @@
 import { useEffect, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { imageUpload } from "../../api/utils";
-
+import useAuth from "../../Hooks/useAuth";
+import { ImSpinner9 } from "react-icons/im";
+import { getToken, saveUser } from "../../api/auth";
+import toast from "react-hot-toast";
 const SignUp = () => {
-  const [districts,setDistricts] = useState([]);
-  const [upazilas,setUpzilas] = useState([]);
-// upazilas fetch
-  useEffect(() =>{
+  const { createUser, updateUserProfile, loading,setLoading } = useAuth();
+  const [districts, setDistricts] = useState([]);
+  const [upazilas, setUpzilas] = useState([]);
+
+  const navigate = useNavigate()
+  // upazilas fetch
+  useEffect(() => {
     fetch('/upazilas.json')
-    .then(res => res.json())
-    .then(data=>{
-      setUpzilas(data)
-      // console.log(data);
-    })
-  },[])
+      .then(res => res.json())
+      .then(data => {
+        setUpzilas(data)
+        // console.log(data);
+      })
+  }, [])
   // districts fetch
-  useEffect(() =>{
+  useEffect(() => {
     fetch('/districts.json')
-    .then(res => res.json())
-    .then(data=>{
-      setDistricts(data);
-      // console.log(data);
-    })
-  },[])
+      .then(res => res.json())
+      .then(data => {
+        setDistricts(data);
+        // console.log(data);
+      })
+  }, [])
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
@@ -32,18 +38,34 @@ const SignUp = () => {
     const password = form.password.value;
     const confirm_password = form.confirm_password.value;
     const district = form.district.value;
-    
+
     const upazila = form.upazila.value;
     const image = form.image.files[0]
 
     console.log(name, email, blood_group, password, confirm_password, district, upazila, image);
-  try{
-// image Upload
-const imageData = await imageUpload(image);
-console.log(imageData);
-  }catch(err){
-    console.log(err);
-  }
+    try {
+      // image Upload
+      const imageData = await imageUpload(image);
+      console.log(imageData);
+      // create user
+      const result = await createUser(email, password)
+      console.log(result.user);
+      // update user name and profile
+      await updateUserProfile(name, imageData?.data?.display_url)
+        // save user data in database
+      
+        const dbResponse = await saveUser(result?.user,blood_group,district,upazila);
+        console.log(dbResponse);
+        // get token
+        await getToken(result?.user?.email);
+        navigate('/');
+        toast.success('Sign Up Successful')
+      
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
+    }
 
 
   }
@@ -56,7 +78,7 @@ console.log(imageData);
 
           </div>
           <form
-          onSubmit={handleSubmit}
+            onSubmit={handleSubmit}
             noValidate=''
             action=''
             className='space-y-6 ng-untouched ng-pristine ng-valid'
@@ -86,7 +108,7 @@ console.log(imageData);
                     Select Image:
                   </label>
                   <input
-                  className="file:rounded-full file:border-0
+                    className="file:rounded-full file:border-0
                   file:text-sm file:font-semibold
                   file:bg-violet-50 file:text-rose-500
                   hover:file:bg-rose-100 px-3 py-2 file:px-3 file:py-3"
@@ -189,7 +211,7 @@ console.log(imageData);
                   </label>
                   <select name="upazila" className="select w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900">
                     {
-                      upazilas?.map(upazila =><option key={upazila.id}>{upazila.name}</option> )
+                      upazilas?.map(upazila => <option key={upazila.id}>{upazila.name}</option>)
                     }
 
                   </select>
@@ -199,15 +221,12 @@ console.log(imageData);
 
             <div>
               <button
+             
                 type='submit'
                 className='bg-[#EB2C29] w-full rounded-md py-3 text-white'
               >
-                {/* {loading ? (
-            <TbFidgetSpinner className='m-auto animate-spin' size={24} />
-          ) : (
-            'Sign Up'
-          )} */}
-          Sign Up
+                {loading ? <ImSpinner9 className='animate-spin m-auto text-xl' /> : 'Continue'}
+
 
 
               </button>
