@@ -3,12 +3,12 @@ import { useState } from "react"
 import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
 import { AiOutlineBars } from 'react-icons/ai'
-import { BsGraphUp } from 'react-icons/bs'
+
 import ToggleBtn from "../../Button/ToggleBtn"
 import MenuItem from "./MenuItem"
 import Avatar from "./Avatar"
 import { Link } from "react-router-dom"
-
+import { BsFillHouseGearFill } from "react-icons/bs";
 
 const Sidebar = () => {
     const [toggle, setToggle] = useState(false)
@@ -41,7 +41,7 @@ const Sidebar = () => {
    </div>
    {/* Sidebar */}
    <div
-     className={`z-10 md:fixed flex flex-col  overflow-x-hidden bg-[#EB2C29] w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
+     className={`z-10 md:fixed flex flex-col  overflow-x-hidden bg-rose-700 w-64 space-y-6 px-2 py-4 absolute inset-y-0 left-0 transform ${
        isActive && '-translate-x-full'
      }  md:translate-x-0  transition duration-200 ease-in-out`}
    >
@@ -60,14 +60,24 @@ const Sidebar = () => {
          <ToggleBtn toggleHandler={toggleHandler} />
          <nav>
            <MenuItem
-             icon={BsGraphUp}
-             label='Statistics'
+             icon={BsFillHouseGearFill}
+             label='Dashboard_Home'
              address='/dashboard'
            />
            <MenuItem
          icon={FcSettings}
          label='Profile'
          address='/dashboard/profile'
+       />
+           <MenuItem
+         icon={FcSettings}
+         label='Create Donation Request'
+         address='/dashboard/create-donation-request'
+       />
+           <MenuItem
+         icon={FcSettings}
+         label='My Donation Requests'
+         address='/dashboard/my-donation-requests'
        />
 
            {/* Menu Items */}
@@ -78,7 +88,7 @@ const Sidebar = () => {
      <div>
      
        <Link to="/">
-      <button className='flex w-full items-center px-4 py-2 mt-5  bg-[#EB2C29]  text-rose-50 shadow-md transition-colors duration-300 transform'>
+      <button className='flex  w-full items-center px-4 py-2 my-5  transition-colors duration-300 transform hover:bg-rose-500 hover:translate-x-1 text-rose-50'>
          <GrLogout className='w-5 h-5' />
 
          <span className='mx-4 font-medium'>Go To Home</span>
