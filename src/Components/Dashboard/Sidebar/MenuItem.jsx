@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router-dom'
-
+import PropTypes from 'prop-types';
 const MenuItem = ({ label, address, icon: Icon }) => {
   return (
     <NavLink
@@ -17,5 +17,9 @@ const MenuItem = ({ label, address, icon: Icon }) => {
     </NavLink>
   )
 }
-
+MenuItem.propTypes={
+    label:PropTypes.string,
+    address:PropTypes.string,
+    icon:PropTypes.elementType
+  }
 export default MenuItem
