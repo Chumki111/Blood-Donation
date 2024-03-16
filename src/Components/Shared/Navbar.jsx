@@ -216,7 +216,7 @@ function NavBar() {
               >
                 {settings.map((setting) => (
                   <NavLink
-                    to={`/dashboard/${setting === "Dashboard" ? " " : setting}`}
+                  to={`/dashboard/${setting === "Dashboard" ? "" : setting.toLowerCase()}`}
                     key={setting}
                     onClick={handleCloseUserMenu}
                     className={({ isActive, isPending }) =>
