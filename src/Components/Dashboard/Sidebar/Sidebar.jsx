@@ -34,7 +34,7 @@ const Sidebar = () => {
 
      <button
        onClick={handleToggle}
-       className='mobile-menu-button p-4 focus:outline-none focus:bg-gray-200'
+       className='mobile-menu-button p-4 focus:outline-none focus:bg-rose-200'
      >
        <AiOutlineBars className='h-5 w-5' />
      </button>
@@ -47,10 +47,12 @@ const Sidebar = () => {
    >
      <div>
        <div>
-         <div className='w-full hidden md:flex px-4 py-2 shadow-lg rounded-lg justify-center items-center bg-rose-100 mx-auto'>
+         <div className='w-full hidden md:flex px-4 py-2 justify-center items-center  mx-auto'>
            <Avatar/>
+
          </div>
        </div>
+       <hr />
 
        {/* Nav Items */}
        <div className='flex flex-col flex-1 mt-6'>
@@ -74,7 +76,7 @@ const Sidebar = () => {
      </div>
 
      <div>
-       <hr />
+     
        <Link to="/">
       <button className='flex w-full items-center px-4 py-2 mt-5  bg-[#EB2C29]  text-rose-50 shadow-md transition-colors duration-300 transform'>
          <GrLogout className='w-5 h-5' />
