@@ -8,6 +8,9 @@ import DashboardLayout from "../Layout/DashboardLayout";
 import Dashboard_Home from "../Pages/Dashboard/Common/Dashboard_Home";
 import Profile from "../Pages/Dashboard/Common/Profile";
 import CreateDonationRequest from "../Pages/Dashboard/Donar/CreateDonationRequest";
+import MyRequests from "../Pages/Dashboard/Donar/MyRequests";
+import ViewRequest from "../Pages/Dashboard/Donar/ViewRequest";
+import { getSingleDonation } from "../api/donations";
 
 const Router = createBrowserRouter([
     {
@@ -50,6 +53,15 @@ const Router = createBrowserRouter([
         {
     path:'create-donation-request',
     element:<CreateDonationRequest/>
+        },
+        {
+          path:'my-donation-requests',
+          element:<MyRequests/>
+        },
+        {
+          path:'view-request/:id',
+          element:<ViewRequest/>,
+          loader:({params}) =>getSingleDonation(params.id)
         }
       ]
     }

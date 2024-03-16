@@ -1,9 +1,10 @@
 import { useState } from "react"
 // Icons
+import { BiSolidDonateHeart } from "react-icons/bi";
 import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
 import { AiOutlineBars } from 'react-icons/ai'
-
+import { FcDonate } from "react-icons/fc";
 import ToggleBtn from "../../Button/ToggleBtn"
 import MenuItem from "./MenuItem"
 import Avatar from "./Avatar"
@@ -70,13 +71,13 @@ const Sidebar = () => {
          address='/dashboard/profile'
        />
            <MenuItem
-         icon={FcSettings}
-         label='Create Donation Request'
+         icon={FcDonate}
+         label='Create A Request'
          address='/dashboard/create-donation-request'
        />
            <MenuItem
-         icon={FcSettings}
-         label='My Donation Requests'
+         icon={BiSolidDonateHeart}
+         label='My Requests'
          address='/dashboard/my-donation-requests'
        />
 
