@@ -42,3 +42,10 @@ export const deleteDonation = async (donationId) => {
       return data;
     
   };
+// delete
+export const updateDonation = async (id,updatedDonation) => {
+   
+      const {data} = await axiosSecure.patch(`/donations/${id}`,updatedDonation); // Adjust the URL as per your backend route
+      return data;
+    
+  };

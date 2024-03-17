@@ -17,7 +17,7 @@ const ViewRequest = () => {
                     <p className="text-xl mr-4">
                         <span className="font-semibold">Requester Name :</span>
                     </p>
-                    <p className="text-xl">{donation?.requester_Name}</p>
+                    <p className="text-xl capitalize">{donation?.requester_Name}</p>
                 </div>
                 <div className="flex items-start">
                     <p className="text-xl mr-4">
@@ -30,14 +30,14 @@ const ViewRequest = () => {
                     <p className="text-xl mr-4">
                         <span className="font-semibold">District :</span>
                     </p>
-                    <p className="text-xl">{donation?.recipient_district}</p>
+                    <p className="text-xl capitalize">{donation?.recipient_district}</p>
                 </div>
 
                 <div className="flex items-start">
                     <p className="text-xl mr-4">
                         <span className="font-semibold">Upazila :</span>
                     </p>
-                    <p className="text-xl">{donation?.recipient_upazila}</p>
+                    <p className="text-xl capitalize">{donation?.recipient_upazila}</p>
                 </div>
 
                 <div className="flex items-start">
@@ -58,14 +58,14 @@ const ViewRequest = () => {
                     <p className="text-xl mr-4">
                         <span className="font-semibold">Hospital Name :</span>
                     </p>
-                    <p className="text-xl">{donation?.hospital_name}</p>
+                    <p className="text-xl capitalize">{donation?.hospital_name}</p>
                 </div>
 
                 <div className="flex items-start">
                     <p className="text-xl mr-4">
                         <span className="font-semibold">Full Address :</span>
                     </p>
-                    <p className="text-xl">{donation?.full_address}</p>
+                    <p className="text-xl capitalize">{donation?.full_address}</p>
                 </div>
 
                 <div className="flex items-start">

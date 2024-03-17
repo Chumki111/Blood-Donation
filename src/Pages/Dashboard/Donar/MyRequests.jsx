@@ -44,8 +44,9 @@ const MyRequests = () => {
               <th className="px-4 py-4 text-start">Status</th>
               <th className="px-4 py-4 text-start">Hospital</th>
               <th className="px-4 py-4 text-start">Donation Date</th>
-              <th className="px-4 py-4 text-start">Address</th>
+              
               <th className="px-4 py-4 text-start">Donation Time</th>
+              <th className="px-4 py-4 text-start">Address</th>
 
               <th className="px-4 py-4 text-start">Update</th>
               <th className="px-4 py-4 text-start">Details</th>

@@ -5,7 +5,7 @@ import useGetUser from "../../../Hooks/useGetUser";
 const Profile = () => {
     const {user} = useAuth();
     const [userInfo] = useGetUser();
-    console.log(userInfo.role);
+    console.log(userInfo?.role);
 
   return (
     <div>

@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import DatePicker from 'react-datepicker'
+import { updateDonation } from "../../../api/donations";
+import { FaArrowsSpin } from "react-icons/fa6";
+import toast from "react-hot-toast";
 const EditRequest = () => {
+    const { id } = useParams();
     const { user } = useAuth();
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false);
@@ -54,7 +58,7 @@ const EditRequest = () => {
 
         console.log(name, Recipient_Name, email, district, upazila, hospitalName, address, date, message);
 
-        const donationData = {
+        const updatedDonation = {
             requester_Name: name,
             requester_email: email,
             // blood_group:user?.blood_group,
@@ -68,30 +72,30 @@ const EditRequest = () => {
             donation_status: 'pending'
         }
         try {
-            
+
             setLoading(true);
             // add donation
-            //  await addDonationRequest(donationData)
-            
-             // Reset the form fields
-             form.reset();
-             // Reset datepicker
-             setStartDate(new Date());
-            navigate('/Donation Requests')
-            // toast.success('Your Donation Request Sent!')
-           
+            await updateDonation(id, updatedDonation);
+
+            // Reset the form fields
+            form.reset();
+            // Reset datepicker
+            setStartDate(new Date());
+            navigate('/dashboard/my-donation-requests')
+            toast.success('Your Donation Request Updated Now!')
+
 
         } catch (err) {
             console.log(err);
-            // toast.error(err.message)
+            toast.error(err.message)
         } finally {
             setLoading(false);
         }
 
     }
-  return (
-    <>
-    <div>
+    return (
+        <>
+            <div>
                 <h2 className="text-2xl md:text-4xl lg:text-5xl font-semibold text-center my-5">Update Your Donation <span className="text-red-500">Request</span></h2>
             </div>
             <div className="">
@@ -134,7 +138,7 @@ const EditRequest = () => {
                                         type='email'
                                         name='email'
                                         id='email'
-                                        required
+                                        
                                         placeholder='Enter Your Email Here'
                                         className='w-full px-3 py-2 border rounded-md border-rose-600 focus:outline-rose-500  text-gray-900'
                                         data-temp-mail-org='0'
@@ -155,6 +159,7 @@ const EditRequest = () => {
                                         placeholder='Enter Your Name Here'
                                         className='w-full px-3 py-2 border rounded-md border-rose-600 focus:outline-rose-500  text-gray-900'
                                         data-temp-mail-org='0'
+                                        required
                                     />
                                 </div>
                                 {/* hospital */}
@@ -190,8 +195,8 @@ const EditRequest = () => {
                                         type=''
                                         name='address'
 
-
-                                        required
+required
+                                       
                                         placeholder='Your Full address'
                                         className='w-full px-3 py-2 border rounded-md border-rose-600 focus:outline-rose-500  text-gray-900'
                                     />
@@ -202,6 +207,7 @@ const EditRequest = () => {
                                         Recipient District
                                     </label>
                                     <select name="district"
+                                    required
                                         className="select w-full px-3 py-2 border rounded-md border-rose-600 focus:outline-rose-500 text-gray-900">
 
                                         {
@@ -218,11 +224,12 @@ const EditRequest = () => {
                                         Request Message
                                     </label>
                                     <textarea
+                                    required
                                         name="textarea"
                                         placeholder="message"
                                         className='w-full px-3 py-2 border rounded-md border-rose-600 focus:outline-rose-500  text-gray-900'
-                                     rows={6}
-                                     
+                                        rows={6}
+
                                     />
 
                                 </div>
@@ -230,7 +237,8 @@ const EditRequest = () => {
                                     <label htmlFor='email' className='block mb-2 text-sm'>
                                         Recipient Upazila
                                     </label>
-                                    <select name="upazila" className="select w-full px-3 py-2 border rounded-md border-rose-600 focus:outline-rose-500  text-gray-900">
+                                    <select name="upazila"
+                                    required className="select w-full px-3 py-2 border rounded-md border-rose-600 focus:outline-rose-500  text-gray-900">
                                         {
                                             upazilas?.map(upazila => <option key={upazila.id}>{upazila.name}</option>)
                                         }
@@ -262,20 +270,20 @@ const EditRequest = () => {
                                 type='submit'
                                 className='bg-rose-500 w-full rounded-md py-3 text-white'
                             >
-                                {/* {loading ? (
+                                {loading ? (
                                     <FaArrowsSpin className='m-auto animate-spin' size={24} />
                                 ) : (
-                                    'Send Request'
-                                )} */}
-                  Update
+                                    'Update Request'
+                                )}
+
 
                             </button>
                         </div>
                     </form>
                 </div>
             </div>
-    </>
-  )
+        </>
+    )
 }
 
 export default EditRequest
