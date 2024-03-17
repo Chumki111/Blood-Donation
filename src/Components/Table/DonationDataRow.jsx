@@ -67,10 +67,12 @@ const DonationDataRow = ({donation,refetch}) => {
               <th className="px-4 py-4 text-start ">{timePart}</th>
               <th className="px-4 py-4 text-start ">{donation?.full_address}</th>
               <th className="px-4 py-4 text-start">
+                  <Link to={`/dashboard/update-request/${donation._id}`}>
                   <button className="flex items-center rounded-full bg-red-500 px-3 py-2 font-bold text-white shadow-md transition-all duration-300 hover:bg-red-700">
                      
                      Update
                   </button>
+                  </Link>
               </th>
               <th className="px-4 py-4 text-start">
                   <Link to={`/dashboard/view-request/${donation._id}`}>

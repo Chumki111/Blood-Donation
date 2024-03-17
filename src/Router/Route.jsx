@@ -14,6 +14,7 @@ import { getSingleDonation, getSinglePendingDonation } from "../api/donations";
 import Payment from "../Pages/Payment/Payment";
 import DonationRequest from "../Pages/DonationRequest/DonationRequest";
 import DonationRequestDetail from "../Pages/DonationRequest/DonationRequestDetail";
+import EditRequest from "../Pages/Dashboard/Donar/EditRequest";
 
 const Router = createBrowserRouter([
     {
@@ -79,6 +80,10 @@ const Router = createBrowserRouter([
           path:'view-request/:id',
           element:<ViewRequest/>,
           loader:({params}) =>getSingleDonation(params.id)
+        },
+        {
+          path:'update-request/:id',
+          element:<EditRequest/>
         }
       ]
     }

@@ -62,7 +62,7 @@ const Sidebar = () => {
          <nav>
            <MenuItem
              icon={BsFillHouseGearFill}
-             label='Dashboard_Home'
+             label='Dashboard Home'
              address='/dashboard'
            />
            <MenuItem
