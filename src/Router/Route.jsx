@@ -10,9 +10,10 @@ import Profile from "../Pages/Dashboard/Common/Profile";
 import CreateDonationRequest from "../Pages/Dashboard/Donar/CreateDonationRequest";
 import MyRequests from "../Pages/Dashboard/Donar/MyRequests";
 import ViewRequest from "../Pages/Dashboard/Donar/ViewRequest";
-import { getSingleDonation } from "../api/donations";
+import { getSingleDonation, getSinglePendingDonation } from "../api/donations";
 import Payment from "../Pages/Payment/Payment";
 import DonationRequest from "../Pages/DonationRequest/DonationRequest";
+import DonationRequestDetail from "../Pages/DonationRequest/DonationRequestDetail";
 
 const Router = createBrowserRouter([
     {
@@ -30,6 +31,12 @@ const Router = createBrowserRouter([
         {
           path:'Donation Requests',
           element:<DonationRequest/>
+        },
+        {
+          path:'Donation Requests/donation-request/:id',
+          element:<DonationRequestDetail/>,
+          loader:({params}) =>getSinglePendingDonation(params.id)
+
         },
         {
           path:'Payment',

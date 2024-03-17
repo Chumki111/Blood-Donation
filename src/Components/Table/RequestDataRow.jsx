@@ -24,7 +24,7 @@ const RequestDataRow = ({donation}) => {
     <th className="px-4 py-4 text-start ">{donation?.full_address}</th>
     
     <th className="px-4 py-4 text-start">
-        <Link >
+        <Link to={`/Donation Requests/donation-request/${donation?._id}`}>
         <button className="flex items-center rounded-full bg-blue-600 px-3 py-2 font-bold text-white shadow-md transition-all duration-300 hover:bg-blue-700">
             
             Details
