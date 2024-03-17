@@ -1,19 +1,27 @@
-import { useEffect, useState } from "react";
+
 import useAuth from "../../Hooks/useAuth"
 import { getPendingDonations } from "../../api/donations";
 import RequestDataRow from "../../Components/Table/RequestDataRow";
+import { useQuery } from "@tanstack/react-query";
 
 
 const DonationRequest = () => {
   const {user} = useAuth();
-  const [donations,setDonations] = useState([])
-  useEffect(() =>{
-    getPendingDonations(user?.email)
-    .then(data=>{
-      console.log(data);
-      setDonations(data)
-    })
-  },[user])
+  // const [donations,setDonations] = useState([])
+  // useEffect(() =>{
+  //   getPendingDonations(user?.email)
+  //   .then(data=>{
+  //     console.log(data);
+  //     setDonations(data)
+  //   })
+  // },[user])
+
+  // tanstack-reqct-query
+  const {data:donations,isLoading} = useQuery({
+    queryKey:['donations',user?.email],
+    queryFn:async() => getPendingDonations(user?.email)
+
+  })
   return (
     <>
     
@@ -42,7 +50,7 @@ const DonationRequest = () => {
             {/* Conditional rendering based on donations */}
             {donations.length > 0 ? (
               donations.map(donation => (
-                <RequestDataRow key={donation._id} donation={donation} />
+                <RequestDataRow key={donation._id} donation={donation} isLoading={isLoading}/>
               ))
             ) : (
               <tr>

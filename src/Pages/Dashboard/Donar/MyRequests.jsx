@@ -1,26 +1,36 @@
-import { useEffect, useState } from "react";
+
 import useAuth from "../../../Hooks/useAuth"
 import { getDonarDonations } from "../../../api/donations";
 import DonationDataRow from "../../../Components/Table/DonationDataRow";
 import { FaArrowsSpin } from "react-icons/fa6";
+import { useQuery } from "@tanstack/react-query";
 
 const MyRequests = () => {
-  const { user } = useAuth();
-  const [loading,setLoading] = useState(false)
-  const [donations, setDonations] = useState([]);
-  useEffect(() => {
-    setLoading(true)
-    getDonarDonations(user?.email)
-      .then(data => {
+  
+  // const [loading,setLoading] = useState(false)
+  // const [donations, setDonations] = useState([]);
+  // useEffect(() => {
+  //   setLoading(true)
+  //   getDonarDonations(user?.email)
+  //     .then(data => {
 
-        setDonations(data);
-        setLoading(false)
-      })
-  }, [user])
+  //       setDonations(data);
+  //       setLoading(false)
+  //     })
+  // }, [user])
+  // ---------->>-------
+  const { user } = useAuth();
+  // tanstack-reqct-query
+  const {data:donations,isLoading,refetch} = useQuery({
+    queryKey:['donations',user?.email],
+    queryFn:async() => getDonarDonations(user?.email)
+
+  })
  
+
   return (
     <>
-    {loading ? 
+    {isLoading? 
     (<div className="flex justify-center items-center h-screen">
           <FaArrowsSpin className="text-3xl animate-spin text-rose-600"/>
         </div>) : ( 
@@ -47,7 +57,7 @@ const MyRequests = () => {
             {/* Conditional rendering based on donations */}
             {donations.length > 0 ? (
               donations.map(donation => (
-                <DonationDataRow key={donation._id} donation={donation} />
+                <DonationDataRow refetch={refetch} key={donation._id} donation={donation} />
               ))
             ) : (
               <tr>
