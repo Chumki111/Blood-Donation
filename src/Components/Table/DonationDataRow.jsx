@@ -1,7 +1,8 @@
 
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { PropTypes } from 'prop-types';
 const DonationDataRow = ({donation}) => {
+    
    
     const { donation_date } = donation;
   const donationDateTime = donation_date.toString(); // Convert to string
@@ -16,8 +17,8 @@ const DonationDataRow = ({donation}) => {
               
               <th className="px-4 py-4 text-start ">{donation?.recipient_name
 }</th>
-              <th className="px-4 py-4 text-start">
-                  <button className="flex items-center rounded-full bg-blue-600 px-3 py-2 font-bold text-white shadow-md transition-all duration-300 hover:bg-blue-700">
+              <th className="">
+                  <button className={`flex items-center  px-3 shadow-md  font-bold ${donation?.donation_status==='in progress' ? 'bg-yellow-400 text-sm rounded-md py-0' : 'bg-blue-600   text-white  transition-all duration-300 hover:bg-blue-700 rounded-full py-2'}`}>
                       
                       {donation?.donation_status}
                   </button>

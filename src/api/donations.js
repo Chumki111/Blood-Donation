@@ -30,3 +30,8 @@ export const getSinglePendingDonation = async(id) =>{
     const {data} = await axiosSecure(`/pending-donations/${id}`)
     return data;
 }
+// pending donation status change --->
+export const donationStatusChange =async(id,donation_status) =>{
+    const {data} = await axiosSecure.patch(`/update-donation-status/${id}`,donation_status)
+    return data;
+}

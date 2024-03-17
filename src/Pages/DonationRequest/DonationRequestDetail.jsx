@@ -1,13 +1,34 @@
-import { useLoaderData } from "react-router-dom"
-
+import { useLoaderData, useNavigate } from "react-router-dom"
+import { donationStatusChange } from "../../api/donations";
+import toast from "react-hot-toast";
+import { useState } from "react";
+import { FaArrowsSpin } from "react-icons/fa6";
 
 const DonationRequestDetail = () => {
+    const navigate = useNavigate()
     const donation = useLoaderData();
-    const {requester_Name,requester_email,recipient_district,recipient_upazila,hospital_name,full_address,donation_status,request_message} = donation;
+    const {requester_Name,requester_email,recipient_district,recipient_upazila,hospital_name,full_address,donation_status,request_message,_id} = donation;
     const { donation_date } = donation;
   const donationDateTime = donation_date.toString(); // Convert to string
   const datePart = donationDateTime.split(',')[0].trim();
   const timePart = donationDateTime.split(',')[1].trim();
+  const [loading, setLoading] = useState(false);
+  const handleDonate =async(_id) =>{
+    setLoading(true)
+    try{
+        await donationStatusChange(_id,{ donation_status: 'in progress' })
+        toast.success('Donation successfully submitted')
+        navigate('/dashboard')
+
+    }catch(err){
+        console.log(err.message);
+        toast.error('Failed to submit donation');
+    }finally{
+    setLoading(false)
+    }
+   
+   
+  }
   return (
     <>
     <div className="mx-20 my-6">
@@ -83,8 +104,8 @@ const DonationRequestDetail = () => {
                 </div>
             </div>
 
-            <div className="flex justify-center items-center my-7">
-                <button className="bg-red-500 hover:bg-red-700 px-4 py-2 rounded-md text-2xl font-semibold text-rose-50">Donate</button>
+            <div onClick={() => handleDonate(_id)} className="flex justify-center items-center my-7">
+                <button className="bg-red-500 hover:bg-red-700 px-6 py-2 rounded-md text-xl font-semibold text-rose-50">{loading ? <FaArrowsSpin className="text-2xl text-rose-50 animate-spin"/>: 'Donate'}</button>
             </div>
              
     </div>
