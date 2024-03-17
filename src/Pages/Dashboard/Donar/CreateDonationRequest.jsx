@@ -80,7 +80,7 @@ const CreateDonationRequest = () => {
              form.reset();
              // Reset datepicker
              setStartDate(new Date());
-            navigate('/dashboard/my-donation-requests')
+            navigate('/Donation Requests')
             toast.success('Your Donation Request Sent!')
            
 
