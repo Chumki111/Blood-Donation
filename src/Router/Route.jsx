@@ -11,6 +11,7 @@ import CreateDonationRequest from "../Pages/Dashboard/Donar/CreateDonationReques
 import MyRequests from "../Pages/Dashboard/Donar/MyRequests";
 import ViewRequest from "../Pages/Dashboard/Donar/ViewRequest";
 import { getSingleDonation } from "../api/donations";
+import Payment from "../Pages/Payment/Payment";
 
 const Router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ const Router = createBrowserRouter([
         {
             path:'Blogs',
             element:<Blogs/>
+        },
+        {
+          path:'Payment',
+          element:<Payment/>
         }
       ]
       
