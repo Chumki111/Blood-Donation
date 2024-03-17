@@ -2,25 +2,50 @@
 import { Link} from "react-router-dom";
 import { PropTypes } from 'prop-types';
 import { deleteDonation } from "../../api/donations";
-import toast from "react-hot-toast";
+import Swal from "sweetalert2";
+
+
 const DonationDataRow = ({donation,refetch}) => {
-    
-   
     const { donation_date } = donation;
   const donationDateTime = donation_date.toString(); // Convert to string
   const datePart = donationDateTime.split(',')[0].trim();
   const timePart = donationDateTime.split(',')[1].trim();
     const handleDelete =async() =>{
 
-        try {
-            await deleteDonation(donation._id);
-            refetch(); 
-            toast.success('Your donation has been successfully deleted,Thank You!')// Refetch data to update the UI
-          } catch (error) {
-            console.error("Error deleting donation:", error.message);
-            toast.error('Oops! Something went wrong while deleting your donation. Please try again later.')
-            // Handle error as needed (show message, log, etc.)
-          }
+        // Show confirmation dialog before deleting
+        const result = await Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        });
+
+        // If user confirms deletion, proceed with deletion
+        if (result.isConfirmed) {
+            try {
+                // Delete the donation
+                await deleteDonation(donation._id);
+                // Refetch data to update the UI
+                refetch();
+                // Show success message
+                Swal.fire({
+                    title: "Deleted!",
+                    text: "Your donation has been successfully deleted.",
+                    icon: "success"
+                });
+            } catch (error) {
+                console.error("Error deleting donation:", error.message);
+                // Show error message
+                Swal.fire({
+                    title: "Error",
+                    text: "Oops! Something went wrong while deleting your donation. Please try again later.",
+                    icon: "error"
+                });
+            }
+        }
 
     }
 
@@ -67,6 +92,7 @@ const DonationDataRow = ({donation,refetch}) => {
   )
 }
 DonationDataRow.propTypes = {
-  donation: PropTypes.object
+  donation: PropTypes.object,
+  refetch:PropTypes.func,
 }
 export default DonationDataRow
