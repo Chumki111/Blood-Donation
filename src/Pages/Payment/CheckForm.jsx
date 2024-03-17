@@ -13,9 +13,13 @@ const CheckoutForm = () => {
     const [clientSecret, setClientSecret] = useState('')
     const [processing, setProcessing] = useState(false);
     const [price, setPrice] = useState(1);
+    // state payment Intent
     const [paymentIntent, setPaymentIntent] = useState(null);
-    const [transactionId, setTransactionId] = useState(null); // State for transaction ID
+     // State for transaction ID
+    const [transactionId, setTransactionId] = useState(null);
 
+
+    // create payment intent
     useEffect(() => {
         createPaymentIntent({ price: price })
             .then(data => {
@@ -68,7 +72,7 @@ const CheckoutForm = () => {
         }
 
         setPaymentIntent(intent);
-
+        //  jodi succeeded hoi
         if (intent.status === 'succeeded') {
             const funding = {
                 email: user?.email,
@@ -79,8 +83,10 @@ const CheckoutForm = () => {
                 date: new Date(),
             }
             try {
+                // save payment Info in database
                 await savePaymentInfo(funding)
-                setTransactionId(intent.id); // Set transaction ID after successful donation
+                // Set transaction ID after successful donation
+                setTransactionId(intent.id); 
                 toast.success('Donation successful! Thank you for your contribution.')
                 
             } catch (err) {
@@ -119,6 +125,7 @@ const CheckoutForm = () => {
                         ></CardElement>
                     </div>
                     <div>
+                        {/* price input */}
                         <input
                             placeholder="Enter Your Donation Amount"
                             className="border w-full  focus:outline focus:outline-gray-500 border-gray-400 p-3 rounded-lg placeholder:font-semibold placeholder:text-[#9CA3AF]/90"
@@ -134,6 +141,7 @@ const CheckoutForm = () => {
                             className="bg-red-500 active:bg-red-700 px-8 py-2  rounded-lg text-white font-semibold my-6"
                             disabled={!stripe || !clientSecret}
                         >
+                            {/* button */}
                             {processing ? (
                                 <>
                                     <FaArrowsSpin className='text-2xl text-white animate-spin' />
@@ -144,9 +152,10 @@ const CheckoutForm = () => {
                             )}
                         </button>
                     </div>
-
+                        {/* error */}
                     {cardError && <p className='text-red-600 ml-8'>{cardError}</p>}
-                    {transactionId && <p className='text-green-600 ml-8'>Your Transaction ID: {transactionId}</p>} {/* Render transaction ID if available */}
+                    {/* show transactionId */}
+                    {transactionId && <p className='text-green-600 ml-8'>Your Transaction ID: {transactionId}</p>}
                     
                 </form>
             </div>

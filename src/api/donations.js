@@ -20,3 +20,13 @@ export const getSingleDonation = async(id) =>{
     const {data} = await axiosSecure(`/donation/${id}`)
     return data;
 }
+// fetch pending all donation for donar
+export const getPendingDonations = async(email) =>{
+    const {data} = await axiosSecure(`/pending-donations/pending/${email}`)
+    return data;
+}
+// fetch single pending donation for donar
+export const getSinglePendingDonation = async(id) =>{
+    const {data} = await axiosSecure(`/pending-donations/${id}`)
+    return data;
+}

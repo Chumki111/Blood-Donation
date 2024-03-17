@@ -61,6 +61,7 @@ const CreateDonationRequest = () => {
         const donationData = {
             requester_Name: name,
             requester_email: email,
+            blood_group:user?.blood_group,
             recipient_name: Recipient_Name,
             recipient_district: district,
             recipient_upazila: upazila,

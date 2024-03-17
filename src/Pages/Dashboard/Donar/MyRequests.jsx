@@ -20,9 +20,11 @@ const MyRequests = () => {
  
   return (
     <>
-    {loading ? (<div className="flex justify-center items-center h-screen">
+    {loading ? 
+    (<div className="flex justify-center items-center h-screen">
           <FaArrowsSpin className="text-3xl animate-spin text-rose-600"/>
-        </div>) : ( <div className="overflow-x-auto">
+        </div>) : ( 
+        <div className="overflow-x-auto">
         <table className="min-w-full border border-gray-200 bg-white shadow-lg">
           {/* Table Header */}
           <thead>
