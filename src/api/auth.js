@@ -16,6 +16,11 @@ export const saveUser = async (user,blood_group,district,upazila) => {
     return data;
 }
 
+// update user
+export const updateProfile = async(email,updateInfo) =>{
+    const {data} = await axiosSecure.patch(`/updateProfile/${email}`,updateInfo);
+    return data;
+}
 // get token from server
 export const getToken = async email => {
     const { data } = await axiosSecure.post('/jwt', email);
