@@ -2,6 +2,16 @@
 
 BloodUnity is a web platform aimed at connecting blood donors with recipients in need of blood donations. This platform facilitates the process of finding blood donors, making donation requests, and managing donation requests.
 
+## key Features BloodUnity
+
+1. Donation Requests: Users can create, update, and delete donation requests, specifying details such as recipient name, blood group, hospital name, address, and donation date.
+
+2. Donor Dashboard: Donors have access to a dashboard where they can view donation requests, filter them based on various criteria, and respond to requests they wish to fulfill.
+
+3. Payment: BloodUnity allows users to make payments for donations, ensuring a seamless and secure transaction process.
+
+4. Profile Management: Users can update their profiles, providing essential information such as contact details, blood group, and donation history.
+
 ## Project Setup
 
 To set up the project locally, follow these steps:
@@ -36,7 +46,7 @@ To set up the project locally, follow these steps:
 ## React Router
 
 This project utilizes React Router for client-side routing. React Router is a powerful routing library for React applications, allowing navigation between different components without the need for page refreshes.
-Learn more about react router - [https://reactrouter.com/en/main/start/tutorial](https://reactrouter.com/en/main/start/tutorial)
+For more information on React Router, refer to the [official documentation](https://reactrouter.com/en/main/start/tutorial)
 ### Installation
 
 To install React Router in your project, run:
@@ -45,4 +55,5 @@ To install React Router in your project, run:
 npm install react-router-dom
 # or
 yarn add react-router-dom
+
 
