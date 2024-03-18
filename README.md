@@ -27,17 +27,16 @@ To set up the project locally, follow these steps:
 
 5. Start the development server:
     ```bash
-    npm start
-    # or
-    yarn start
+    npm run dev
+    
     ```
 
-6. Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+6. Open [http://localhost:5173](http://localhost:5173) in your browser to view the application.
 
 ## React Router
 
 This project utilizes React Router for client-side routing. React Router is a powerful routing library for React applications, allowing navigation between different components without the need for page refreshes.
-
+Learn more about react router - [https://reactrouter.com/en/main/start/tutorial](https://reactrouter.com/en/main/start/tutorial)
 ### Installation
 
 To install React Router in your project, run:
