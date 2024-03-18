@@ -5,20 +5,20 @@ import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
 import { AiOutlineBars } from 'react-icons/ai'
 import { FcDonate } from "react-icons/fc";
-import ToggleBtn from "../../Button/ToggleBtn"
+// import ToggleBtn from "../../Button/ToggleBtn"
 import MenuItem from "./MenuItem"
 import Avatar from "./Avatar"
 import { Link } from "react-router-dom"
 import { BsFillHouseGearFill } from "react-icons/bs";
 
 const Sidebar = () => {
-    const [toggle, setToggle] = useState(false)
+    // const [toggle, setToggle] = useState(false)
   const [isActive, setActive] = useState(false)
 
   //   For guest/host menu item toggle button
-  const toggleHandler = event => {
-    setToggle(event.target.checked)
-  }
+  // const toggleHandler = event => {
+  //   setToggle(event.target.checked)
+  // }
   // Sidebar Responsive Handler
   const handleToggle = () => {
     setActive(!isActive)
@@ -35,7 +35,7 @@ const Sidebar = () => {
 
      <button
        onClick={handleToggle}
-       className='mobile-menu-button p-4 focus:outline-none focus:bg-rose-200'
+       className='mobile-menu-button p-4 focus:outline-none focus:bg-rose-500'
      >
        <AiOutlineBars className='h-5 w-5' />
      </button>
@@ -58,7 +58,7 @@ const Sidebar = () => {
        {/* Nav Items */}
        <div className='flex flex-col flex-1 mt-6'>
          {/* If a user is host */}
-         <ToggleBtn toggleHandler={toggleHandler} />
+         {/* <ToggleBtn toggleHandler={toggleHandler} /> */}
          <nav>
            <MenuItem
              icon={BsFillHouseGearFill}
@@ -80,6 +80,13 @@ const Sidebar = () => {
          label='My Requests'
          address='/dashboard/my-donation-requests'
        />
+       <Link to="/">
+      <button className='flex  w-full items-center px-4 py-2 my-5  transition-colors duration-300 transform hover:bg-rose-500 hover:translate-x-1 text-rose-50'>
+         <GrLogout className='w-5 h-5' />
+
+         <span className='mx-4 font-medium'>Go To Home</span>
+       </button>
+      </Link>
 
            {/* Menu Items */}
          </nav>
@@ -88,13 +95,7 @@ const Sidebar = () => {
 
      <div>
      
-       <Link to="/">
-      <button className='flex  w-full items-center px-4 py-2 my-5  transition-colors duration-300 transform hover:bg-rose-500 hover:translate-x-1 text-rose-50'>
-         <GrLogout className='w-5 h-5' />
-
-         <span className='mx-4 font-medium'>Go To Home</span>
-       </button>
-      </Link>
+       
      </div>
    </div>
  </>

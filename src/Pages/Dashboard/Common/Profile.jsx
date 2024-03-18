@@ -182,7 +182,7 @@ const Profile = () => {
                           </div>
                           {/* button type will be submit for handling form submission*/}
 
-                          <div className="flex justify-between items-center">
+                          <div className="flex flex-col md:flex-row justify-between items-center">
                             <div>
                               <label className="w-64 mt-10 flex flex-col items-center px-4 py-6 bg-white text-blue rounded-lg shadow-lg tracking-wide uppercase border border-blue cursor-pointer hover:bg-blue hover:text-red-600">
                                 {/* image */}

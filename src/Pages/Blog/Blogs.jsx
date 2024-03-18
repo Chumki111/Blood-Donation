@@ -1,10 +1,10 @@
-import { Link } from "react-router-dom"
+
 
 
 const Blogs = () => {
   return (
-    <div>Blogs
-        <Link to="/">hello</Link>
+    <div>
+        <h2 className="text-center text-3xl font-semibold my-6">All Blogs are coming soon</h2>
     </div>
   )
 }

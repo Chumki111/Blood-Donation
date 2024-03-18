@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 
 
 
@@ -20,12 +21,13 @@ const Banner = () => {
           </p>
           {/* Banner action  */}
           <div className="mt-5 flex md:flex-row max-w-[450px] mx-auto justify-center gap-2 flex-col">
-            <div className="md:ml-auto md:mr-0 lg:w-[55%] relative">
-              <svg className="absolute mt-[10px] ml-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 3.38 8.06 7.75 8.94.57.11.78-.25.78-.55v-3.06c0-.31-.22-.59-.53-.64C5.61 16.31 4 14.29 4 12c0-3.31 2.69-6 6-6s6 2.69 6 6-2.69 6-6 6c-.34 0-.67-.04-1-.09-.31-.05-.54-.33-.54-.64v-3.07c0-.3-.21-.66.57-.59 3.43.65 6.18 3.25 6.18 6.49v.5c0 .41.34.75.75.75s.75-.34.75-.75v-.5c0-4.57-3.61-8.25-8-8.75z"/></svg>
-              <input placeholder="Enter your email" className="pr-3 pl-8 rounded-lg w-full py-3" type="text" name="" id="" />
+          <div className="md:mr-auto md:ml-0 lg:w-[45%]">
+              <button className="bg-rose-600 sm:py-3 py-2 sm:text-base text-sm px-4 text-white rounded-lg h-full w-full">Search A Donar</button>
             </div>
             <div className="md:mr-auto md:ml-0 lg:w-[45%]">
-              <button className="bg-[#22C55E] sm:py-3 py-2 sm:text-base text-sm px-4 text-white rounded-lg h-full w-full">Get Early Access</button>
+             <Link to='/register'>
+             <button className="bg-rose-600 sm:py-3 py-2 sm:text-base text-sm px-4 text-white rounded-lg h-full w-full">Get Started</button>
+             </Link>
             </div>
           </div>
         </div>

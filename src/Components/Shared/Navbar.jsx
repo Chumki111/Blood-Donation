@@ -232,7 +232,7 @@ function NavBar() {
                   <Button
                     onClick={logOut}
                     textAlign="center"
-                    sx={{ color: "red", border: "1px solid red" }}
+                    
                   >
                     Logout
                   </Button>

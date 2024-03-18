@@ -2,6 +2,7 @@ import { Outlet } from "react-router-dom"
 import Navbar from "../Components/Shared/Navbar"
 import { useEffect, useState } from "react"
 import { ImSpinner9 } from 'react-icons/im';
+import Footer from "../Components/Shared/Footer";
 
 const Main = () => {
     const [loading,setLoading] = useState(true);
@@ -17,6 +18,7 @@ setTimeout(() =>{
     <>
     <Navbar/>
     <Outlet/>
+    <Footer/>
     </>
   )
 }
