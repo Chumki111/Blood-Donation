@@ -3,6 +3,7 @@ import useAuth from "../../../Hooks/useAuth";
 import { getDonarDonations } from "../../../api/donations";
 import DonationDataRow from "../../../Components/Table/DonationDataRow";
 import { FaArrowsSpin } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Dashboard_Home = () => {
   const { user } = useAuth();
@@ -14,6 +15,9 @@ const Dashboard_Home = () => {
   })
   return (
     <>
+    <div>
+      <h2 className="text-center text-2xl md:text-4xl lg:text-5xl font-semibold my-10">Welcome Back <span className="text-rose-500">{user?.displayName}</span></h2>
+    </div>
     {isLoading? 
     (<div className="flex justify-center items-center h-screen">
           <FaArrowsSpin className="text-3xl animate-spin text-rose-600"/>
@@ -54,6 +58,11 @@ const Dashboard_Home = () => {
           </tbody>
         </table>
       </div>)}
+      <div className="flex justify-center items-center my-5">
+        <Link to="/dashboard/my-donation-requests">
+        <button className="bg-rose-600 hover:bg-red-700 hover:text-rose-100 px-3 py-3 rounded-md text-lg font-medium">View Your All Request</button>
+        </Link>
+      </div>
     </>
   )
 }
