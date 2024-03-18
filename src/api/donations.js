@@ -1,3 +1,4 @@
+import axios from "axios";
 import axiosSecure from ".";
 // create a donation from donar
 export const addDonationRequest=async(donationData) =>{
@@ -49,3 +50,24 @@ export const updateDonation = async (id,updatedDonation) => {
       return data;
     
   };
+// Define the getDistricts function
+export const getDistricts = async () => {
+    try {
+        const response = await axios.get('/districts'); // Adjust the URL as per your backend route
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching districts:', error);
+        throw new Error('Failed to fetch districts');
+    }
+};
+
+// Define the getUpazilas function
+export const getUpazilas = async () => {
+    try {
+        const response = await axios.get('/upazilas'); // Adjust the URL as per your backend route
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching upazilas:', error);
+        throw new Error('Failed to fetch upazilas');
+    }
+};

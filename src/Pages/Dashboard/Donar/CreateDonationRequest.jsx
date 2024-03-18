@@ -1,45 +1,49 @@
-import { useEffect, useState } from "react";
+import {useEffect, useState } from "react";
 import useAuth from "../../../Hooks/useAuth";
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
 import toast from "react-hot-toast";
-import { addDonationRequest } from "../../../api/donations";
+import { addDonationRequest,} from "../../../api/donations";
 import { FaArrowsSpin } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+// import { useQuery } from "@tanstack/react-query";
 const CreateDonationRequest = () => {
-    const { user } = useAuth();
+    const { user,loading,setLoading } = useAuth();
     const navigate = useNavigate()
-    const [loading, setLoading] = useState(false);
+    
     const [startDate, setStartDate] = useState(new Date());
     const [districts, setDistricts] = useState([]);
-    const [upazilas, setUpazilas] = useState([]);
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch("../../../../public/upazilas.json");
-                const data = await response.json();
-                setUpazilas(data);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
+    const [upazilas, setUpzilas] = useState([]);
+  // upazilas fetch
+  useEffect(() => {
+    fetch('/upazilas.json')
+      .then(res => res.json())
+      .then(data => {
+        setUpzilas(data)
+        // console.log(data);
+      })
+  }, [])
+  // districts fetch
+  useEffect(() => {
+    fetch('/districts.json')
+      .then(res => res.json())
+      .then(data => {
+        setDistricts(data);
+        // console.log(data);
+      })
+  }, [])
+    // tanstack-reqct-query
+    // const { data: districts } = useQuery({
+    //     queryKey: ['districts'],
+    //     queryFn: async () => getDistricts()
+    // });
 
-        fetchData();
-    }, [])
+    // tanstack-reqct-query
+    // const { data: upazilas } = useQuery({
+    //     queryKey: ['upazilas'],
+    //     queryFn: async () => getUpazilas()
+    // });
 
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch("../../../../public/upazilas.json");
-                const data = await response.json();
-                setDistricts(data);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
-
-        fetchData();
-    }, [])
     const handleSubmit = async (event) => {
         setLoading(true);
         event.preventDefault();
@@ -55,13 +59,10 @@ const CreateDonationRequest = () => {
         const date = form.date.value;
         const message = form.textarea.value;
 
-
-        console.log(name, Recipient_Name, email, district, upazila, hospitalName, address, date, message);
-
         const donationData = {
             requester_Name: name,
             requester_email: email,
-            blood_group:user?.blood_group,
+            blood_group: user?.blood_group,
             recipient_name: Recipient_Name,
             recipient_district: district,
             recipient_upazila: upazila,
@@ -70,30 +71,25 @@ const CreateDonationRequest = () => {
             donation_date: date,
             request_message: message,
             donation_status: 'pending'
-        }
+        };
         try {
-            
             setLoading(true);
             // add donation
-             await addDonationRequest(donationData)
-            
-             // Reset the form fields
-             form.reset();
-             // Reset datepicker
-             setStartDate(new Date());
-            navigate('/Donation Requests')
-            toast.success('Your Donation Request Sent!')
-           
+            await addDonationRequest(donationData);
 
+            // Reset the form fields
+            form.reset();
+            // Reset datepicker
+            setStartDate(new Date());
+            navigate('/Donation Requests');
+            toast.success('Your Donation Request Sent!');
         } catch (err) {
             console.log(err);
-            toast.error(err.message)
+            toast.error(err.message);
         } finally {
             setLoading(false);
         }
-
-    }
-
+    };
     return (
         <>
             <div>
@@ -203,17 +199,17 @@ const CreateDonationRequest = () => {
                                 </div>
 
                                 <div>
-                                    <label htmlFor='' className='block mb-2 text-sm'>
-                                        Recipient District
-                                    </label>
-                                    <select name="district"
-                                        className="select w-full px-3 py-2 border rounded-md border-rose-600 focus:outline-rose-500 text-gray-900">
+                                <label htmlFor='email' className='block mb-2 text-sm'>
+                    District
+                  </label>
+                  <select name="district"
+                    className="select w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900">
 
-                                        {
-                                            districts.map(district => <option key={district.id}>{district.name}</option>)
-                                        }
+                    {
+                      districts.map(district => <option key={district.id}>{district.name}</option>)
+                    }
 
-                                    </select>
+                  </select>
                                 </div>
                             </div>
 
@@ -232,15 +228,15 @@ const CreateDonationRequest = () => {
 
                                 </div>
                                 <div>
-                                    <label htmlFor='email' className='block mb-2 text-sm'>
-                                        Recipient Upazila
-                                    </label>
-                                    <select name="upazila" className="select w-full px-3 py-2 border rounded-md border-rose-600 focus:outline-rose-500  text-gray-900">
-                                        {
-                                            upazilas?.map(upazila => <option key={upazila.id}>{upazila.name}</option>)
-                                        }
+                                <label htmlFor='email' className='block mb-2 text-sm'>
+                    Upazila
+                  </label>
+                  <select name="upazila" className="select w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900">
+                    {
+                      upazilas?.map(upazila => <option key={upazila.id}>{upazila.name}</option>)
+                    }
 
-                                    </select>
+                  </select>
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

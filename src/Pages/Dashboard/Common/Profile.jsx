@@ -7,41 +7,33 @@ import { updateProfile } from "../../../api/auth";
 import toast from "react-hot-toast";
 import { FaArrowsSpin } from "react-icons/fa6";
 
+
 const Profile = () => {
 
 
   const [openModal, setOpenModal] = useState(false);
   const { user, updateUserProfile } = useAuth();
   const [userInfo, isLoading, refetch] = useGetUser();
-  console.log(userInfo);
   const [districts, setDistricts] = useState([]);
-  const [upazilas, setUpazilas] = useState([]);
+  const [upazilas, setUpzilas] = useState([]);
+  console.log(userInfo);
+  // upazilas fetch
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("../../../../public/upazilas.json");
-        const data = await response.json();
-        setUpazilas(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
+    fetch('/upazilas.json')
+      .then(res => res.json())
+      .then(data => {
+        setUpzilas(data)
+        // console.log(data);
+      })
   }, [])
-
+  // districts fetch
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch("../../../../public/upazilas.json");
-        const data = await response.json();
+    fetch('/districts.json')
+      .then(res => res.json())
+      .then(data => {
         setDistricts(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
+        // console.log(data);
+      })
   }, [])
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -61,7 +53,7 @@ const Profile = () => {
       await updateUserProfile(name, imageData?.data?.display_url)
       // Prepare updated profile data
       const updateInfo = {
-        email:user?.email,
+        email: user?.email,
         name,
         blood_group,
         district,
@@ -168,12 +160,14 @@ const Profile = () => {
                               <option>O-</option>
                             </select>
                             <select name="district"
-                              className="select w-full px-3 py-2 border rounded-md focus:outline-rose-500 text-gray-900">
+                              className="select w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900">
+
                               {
                                 districts.map(district => <option key={district.id}>{district.name}</option>)
                               }
+
                             </select>
-                            <select name="upazila" className="select w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500  text-gray-900">
+                            <select name="upazila" className="select w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900">
                               {
                                 upazilas?.map(upazila => <option key={upazila.id}>{upazila.name}</option>)
                               }
