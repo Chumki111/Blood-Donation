@@ -9,14 +9,12 @@ import { FaArrowsSpin } from "react-icons/fa6";
 
 
 const Profile = () => {
-
-
   const [openModal, setOpenModal] = useState(false);
   const { user, updateUserProfile } = useAuth();
   const [userInfo, isLoading, refetch] = useGetUser();
   const [districts, setDistricts] = useState([]);
   const [upazilas, setUpzilas] = useState([]);
-  console.log(userInfo);
+  // console.log(userInfo);
   // upazilas fetch
   useEffect(() => {
     fetch('/upazilas.json')

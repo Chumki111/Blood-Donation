@@ -1,5 +1,6 @@
 import useGetUser from "../../../Hooks/useGetUser"
 import AdminHome from "../../../Components/Dashboard/Sidebar/AdminHome";
+import VolunteerHome from "../../../Components/Dashboard/Sidebar/VolunteerHome";
 
 
 const Dashboard_Home = () => {
@@ -12,7 +13,7 @@ const Dashboard_Home = () => {
     </div>
 
     {userInfo?.role === "Admin" && <AdminHome/>}
-    {userInfo?.role === "Volunteer" && <AdminHome/>}
+    {userInfo?.role === "Volunteer" && <VolunteerHome/>}
     {userInfo?.role === "Donar" && <AdminHome/>}
     
     </>

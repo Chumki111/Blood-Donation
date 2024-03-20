@@ -37,3 +37,9 @@ export const getUser= async(email) =>{
     const {data} = await axiosSecure(`/user/${email}`);
     return data;
 }
+
+// get all users ====>
+export const getAllUsers = async() =>{
+    const {data} = await axiosSecure('/users');
+    return data;
+}
