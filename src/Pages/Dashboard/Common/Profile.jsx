@@ -160,14 +160,14 @@ const Profile = () => {
                               <option>O-</option>
                             </select>
                             <select name="district"
-                              className="select w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900">
+                              className="select w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 text-gray-900">
 
                               {
                                 districts.map(district => <option key={district.id}>{district.name}</option>)
                               }
 
                             </select>
-                            <select name="upazila" className="select w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 bg-gray-200 text-gray-900">
+                            <select name="upazila" className="select w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500  text-gray-900">
                               {
                                 upazilas?.map(upazila => <option key={upazila.id}>{upazila.name}</option>)
                               }

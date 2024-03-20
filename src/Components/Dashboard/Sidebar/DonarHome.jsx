@@ -1,36 +1,20 @@
-
-import useAuth from "../../../Hooks/useAuth"
-import { getDonarDonations } from "../../../api/donations";
-import DonationDataRow from "../../../Components/Table/DonationDataRow";
-import { FaArrowsSpin } from "react-icons/fa6";
 import { useQuery } from "@tanstack/react-query";
+import useAuth from "../../../Hooks/useAuth";
+import { getDonarDonations } from "../../../api/donations";
+import DonationDataRow from "../../Table/DonationDataRow";
+import { FaArrowsSpin } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
-const MyRequests = () => {
+const DonarHome = () => {
+    const { user } = useAuth();
+    // tanstack-reqct-query
+    const {data:donations,isLoading,refetch} = useQuery({
+      queryKey:['donations',user?.email],
+      queryFn:async() => getDonarDonations(user?.email)
   
-  // const [loading,setLoading] = useState(false)
-  // const [donations, setDonations] = useState([]);
-  // useEffect(() => {
-  //   setLoading(true)
-  //   getDonarDonations(user?.email)
-  //     .then(data => {
-
-  //       setDonations(data);
-  //       setLoading(false)
-  //     })
-  // }, [user])
-  // ---------->>-------
-  const { user } = useAuth();
-  // tanstack-reqct-query
-  const {data:donations,isLoading,refetch} = useQuery({
-    queryKey:['donations',user?.email],
-    queryFn:async() => getDonarDonations(user?.email)
-
-  })
- 
-
+    })
   return (
     <>
-    <div><h2 className="text-center font-semibold text-4xl py-7">My All Donations</h2></div>
     {isLoading? 
     (<div className="flex justify-center items-center h-screen">
           <FaArrowsSpin className="text-3xl animate-spin text-rose-600"/>
@@ -58,7 +42,7 @@ const MyRequests = () => {
             {/* Table rows */}
             {/* Conditional rendering based on donations */}
             {donations.length > 0 ? (
-              donations.map(donation => (
+              donations.slice(0,3)?.map(donation => (
                 <DonationDataRow refetch={refetch} key={donation._id} donation={donation} />
               ))
             ) : (
@@ -71,12 +55,13 @@ const MyRequests = () => {
           </tbody>
         </table>
       </div>)}
-
-      
-
-     
+      <div className="flex justify-center items-center my-5">
+        <Link to="/dashboard/my-donation-requests">
+        <button className="bg-rose-600 hover:bg-red-700 hover:text-rose-100 px-3 py-3 rounded-md text-lg font-medium">View Your All Request</button>
+        </Link>
+      </div>
     </>
   )
 }
 
-export default MyRequests
+export default DonarHome

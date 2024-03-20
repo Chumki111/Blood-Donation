@@ -4,7 +4,7 @@ import useGetUser from "../../../Hooks/useGetUser";
 
 const Avatar = () => {
   const [userInfo] = useGetUser()
-    console.log(userInfo);
+    // console.log(userInfo);
   
   return (
     <>

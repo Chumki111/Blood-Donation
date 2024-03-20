@@ -12,33 +12,25 @@ const EditRequest = () => {
     const [loading, setLoading] = useState(false);
     const [startDate, setStartDate] = useState(new Date());
     const [districts, setDistricts] = useState([]);
-    const [upazilas, setUpazilas] = useState([]);
+    const [upazilas, setUpzilas] = useState([]);
+    
+    // upazilas fetch
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch("../../../../public/upazilas.json");
-                const data = await response.json();
-                setUpazilas(data);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
-
-        fetchData();
+      fetch('/upazilas.json')
+        .then(res => res.json())
+        .then(data => {
+          setUpzilas(data)
+          // console.log(data);
+        })
     }, [])
-
+    // districts fetch
     useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await fetch("../../../../public/upazilas.json");
-                const data = await response.json();
-                setDistricts(data);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        };
-
-        fetchData();
+      fetch('/districts.json')
+        .then(res => res.json())
+        .then(data => {
+          setDistricts(data);
+          // console.log(data);
+        })
     }, [])
     const handleSubmit = async (event) => {
         setLoading(true);
@@ -207,14 +199,13 @@ required
                                         Recipient District
                                     </label>
                                     <select name="district"
-                                    required
-                                        className="select w-full px-3 py-2 border rounded-md border-rose-600 focus:outline-rose-500 text-gray-900">
+                              className="select w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500 text-gray-900">
 
-                                        {
-                                            districts.map(district => <option key={district.id}>{district.name}</option>)
-                                        }
+                              {
+                                districts.map(district => <option key={district.id}>{district.name}</option>)
+                              }
 
-                                    </select>
+                            </select>
                                 </div>
                             </div>
 
@@ -237,13 +228,12 @@ required
                                     <label htmlFor='email' className='block mb-2 text-sm'>
                                         Recipient Upazila
                                     </label>
-                                    <select name="upazila"
-                                    required className="select w-full px-3 py-2 border rounded-md border-rose-600 focus:outline-rose-500  text-gray-900">
-                                        {
-                                            upazilas?.map(upazila => <option key={upazila.id}>{upazila.name}</option>)
-                                        }
+                                    <select name="upazila" className="select w-full px-3 py-2 border rounded-md border-gray-300 focus:outline-rose-500  text-gray-900">
+                              {
+                                upazilas?.map(upazila => <option key={upazila.id}>{upazila.name}</option>)
+                              }
 
-                                    </select>
+                            </select>
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

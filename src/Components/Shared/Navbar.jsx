@@ -75,7 +75,7 @@ function NavBar() {
                 textDecoration: "none",
               }}
             >
-              BloodUnity
+              BloodCamp
             </Typography>
           </div>
 

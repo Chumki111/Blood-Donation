@@ -1,17 +1,23 @@
 import { useState } from "react"
 // Icons
-import { BiSolidDonateHeart } from "react-icons/bi";
+
 import { GrLogout } from 'react-icons/gr'
 import { FcSettings } from 'react-icons/fc'
 import { AiOutlineBars } from 'react-icons/ai'
-import { FcDonate } from "react-icons/fc";
+
 // import ToggleBtn from "../../Button/ToggleBtn"
 import MenuItem from "./MenuItem"
 import Avatar from "./Avatar"
 import { Link } from "react-router-dom"
 import { BsFillHouseGearFill } from "react-icons/bs";
+import useGetUser from "../../../Hooks/useGetUser";
+import AdminMenu from "./AdminMenu";
+import VolunteerMenu from "./VolunteerMenu";
+import DonarMenu from "./DonarMenu";
 
 const Sidebar = () => {
+  const [userInfo] = useGetUser();
+  console.log(userInfo?.role);
     // const [toggle, setToggle] = useState(false)
   const [isActive, setActive] = useState(false)
 
@@ -60,25 +66,21 @@ const Sidebar = () => {
          {/* If a user is host */}
          {/* <ToggleBtn toggleHandler={toggleHandler} /> */}
          <nav>
-           <MenuItem
+<MenuItem
              icon={BsFillHouseGearFill}
              label='Dashboard Home'
              address='/dashboard'
            />
-           <MenuItem
+
+           {userInfo?.role === 'Admin' && <AdminMenu/>}
+           {userInfo?.role === 'Volunteer' && <VolunteerMenu/>}
+           {userInfo?.role === 'Donar' && <DonarMenu/>}
+           
+          
+       <MenuItem
          icon={FcSettings}
          label='Profile'
          address='/dashboard/profile'
-       />
-           <MenuItem
-         icon={FcDonate}
-         label='Create A Request'
-         address='/dashboard/create-donation-request'
-       />
-           <MenuItem
-         icon={BiSolidDonateHeart}
-         label='My Requests'
-         address='/dashboard/my-donation-requests'
        />
        <Link to="/">
       <button className='flex  w-full items-center px-4 py-2 my-5  transition-colors duration-300 transform hover:bg-rose-500 hover:translate-x-1 text-rose-50'>
