@@ -10,3 +10,10 @@ export const savePaymentInfo =async(funding) =>{
     const {data} = await axiosSecure.post('payments',funding);
     return data;
 }
+
+// get total amount
+
+export const getTotalAmount =async() =>{
+    const {data} = await axiosSecure('/total-money-received')
+    return data;
+}

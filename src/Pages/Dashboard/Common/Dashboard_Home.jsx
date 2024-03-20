@@ -1,6 +1,7 @@
 import useGetUser from "../../../Hooks/useGetUser"
 import AdminHome from "../../../Components/Dashboard/Sidebar/AdminHome";
 import VolunteerHome from "../../../Components/Dashboard/Sidebar/VolunteerHome";
+import DonarHome from "../../../Components/Dashboard/Sidebar/DonarHome";
 
 
 const Dashboard_Home = () => {
@@ -14,7 +15,7 @@ const Dashboard_Home = () => {
 
     {userInfo?.role === "Admin" && <AdminHome/>}
     {userInfo?.role === "Volunteer" && <VolunteerHome/>}
-    {userInfo?.role === "Donar" && <AdminHome/>}
+    {userInfo?.role === "Donar" && <DonarHome/>}
     
     </>
   )
