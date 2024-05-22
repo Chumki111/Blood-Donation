@@ -1,3 +1,4 @@
+import Countup from "../../Components/Home/Countup"
 import Banner from "./Banner"
 
 
@@ -6,6 +7,7 @@ const Home = () => {
     <div>
       
       <Banner/>
+      <Countup/>
     </div>
   )
 }
