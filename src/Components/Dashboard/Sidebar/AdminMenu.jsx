@@ -1,8 +1,15 @@
-
+import MenuItem from "./MenuItem"
+import { FaUsersGear } from "react-icons/fa6";
 
 const AdminMenu = () => {
   return (
-    <div>AdminMenu</div>
+    <>
+    <MenuItem
+         icon={FaUsersGear}
+         label='All Users'
+         address='/dashboard/allUsers'
+       />
+    </>
   )
 }
 

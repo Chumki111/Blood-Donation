@@ -11,7 +11,7 @@ import { Parallax } from 'react-parallax';
 const Countup = () => {
     const [counter, setCounter] = useState(false)
     return (
-        <>
+        <div className='py-10'>
 
 
             <Parallax
@@ -91,7 +91,7 @@ const Countup = () => {
             </Parallax>
 
 
-        </>
+        </div>
     )
 }
 

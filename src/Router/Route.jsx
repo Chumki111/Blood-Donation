@@ -15,77 +15,84 @@ import Payment from "../Pages/Payment/Payment";
 import DonationRequest from "../Pages/DonationRequest/DonationRequest";
 import DonationRequestDetail from "../Pages/DonationRequest/DonationRequestDetail";
 import EditRequest from "../Pages/Dashboard/Donar/EditRequest";
+import AllUsers from "../Pages/Dashboard/Admin/AllUsers";
 
 const Router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Main/>,
-      children:[
-        {
-           path:'/',
-            element:<Home/>
-        },
-        {
-            path:'Blogs',
-            element:<Blogs/>
-        },
-        {
-          path:'Donation Requests',
-          element:<DonationRequest/>
-        },
-        {
-          path:'Donation Requests/donation-request/:id',
-          element:<DonationRequestDetail/>,
-          loader:({params}) =>getSinglePendingDonation(params.id)
+  {
+    path: "/",
+    element: <Main />,
+    children: [
+      {
+        path: '/',
+        element: <Home />
+      },
+      {
+        path: 'Blogs',
+        element: <Blogs />
+      },
+      {
+        path: 'Donation Requests',
+        element: <DonationRequest />
+      },
+      {
+        path: 'Donation Requests/donation-request/:id',
+        element: <DonationRequestDetail />,
+        loader: ({ params }) => getSinglePendingDonation(params.id)
 
-        },
-        {
-          path:'Payment',
-          element:<Payment/>
-        }
-      ]
-      
-    },
-    {
-        path:'login',
-        element:<Login/>
-    },
-    {
-        path:'register',
-        element:<SignUp/>
-    },
-    {
-      path:'/Dashboard',
-      element:<DashboardLayout/>,
-      children:[
-        // common route for admin,donar,volunteer
-        {
-          index:true,
-          element:<Dashboard_Home/>
-        },
-        {
-          path:'profile',
-          element:<Profile/>
-        },
-        // donar
-        {
-    path:'create-donation-request',
-    element:<CreateDonationRequest/>
-        },
-        {
-          path:'my-donation-requests',
-          element:<MyRequests/>
-        },
-        {
-          path:'view-request/:id',
-          element:<ViewRequest/>,
-          loader:({params}) =>getSingleDonation(params.id)
-        },
-        {
-          path:'update-request/:id',
-          element:<EditRequest/>
-        }
-      ]
-    }
-  ]);
+      },
+      {
+        path: 'Payment',
+        element: <Payment />
+      }
+    ]
+
+  },
+  {
+    path: 'login',
+    element: <Login />
+  },
+  {
+    path: 'register',
+    element: <SignUp />
+  },
+  {
+    path: '/Dashboard',
+    element: <DashboardLayout />,
+    children: [
+
+      // common route for admin,donar,volunteer
+      {
+        index: true,
+        element: <Dashboard_Home />
+      },
+      {
+        path: 'profile',
+        element: <Profile />
+      },
+      // admin route
+      {
+        path: 'allUsers',
+        element: <AllUsers />
+      },
+      // donar
+      {
+        path: 'create-donation-request',
+        element: <CreateDonationRequest />
+      },
+      {
+        path: 'my-donation-requests',
+        element: <MyRequests />
+      },
+      {
+        path: 'view-request/:id',
+        element: <ViewRequest />,
+        loader: ({ params }) => getSingleDonation(params.id)
+      },
+      {
+        path: 'update-request/:id',
+        element: <EditRequest />
+      }
+    ]
+  }
+]);
 export default Router;

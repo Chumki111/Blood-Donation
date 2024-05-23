@@ -1,4 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  * {
+    @apply box-border p-0 m-0;
+  }
+  
+  body {
+    @apply font-poppins bg-gray-100 text-gray-700;
+  }
+  
+  img {
+    @apply block max-w-full h-auto;
+  }
+  
+  @keyframes show-data {
+    50% {
+      transform: translateY(-10rem);
+    }
+    100% {
+      transform: translateY(-7rem);
+    }
+  }
+
+  @keyframes remove-overflow {
+    to {
+      overflow: initial;
+    }
+  }
+
+  @keyframes remove-data {
+    0% {
+      transform: translateY(-7rem);
+    }
+    50% {
+      transform: translateY(-10rem);
+    }
+    100% {
+      transform: translateY(0.5rem);
+    }
+  }
+
+  @keyframes show-overflow {
+    0% {
+      overflow: initial;
+      pointer-events: none;
+    }
+    50% {
+      overflow: hidden;
+    }
+  }
+}
