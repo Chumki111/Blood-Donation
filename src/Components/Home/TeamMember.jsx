@@ -26,8 +26,8 @@ const TeamMember = () => {
       {/* card section */}
       
 
-      <div className="grid place-items-center mx-6 py-20 h-screen">
-      <div className="grid gap-14 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid place-items-center mx-6 py-5">
+      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
         {cards.map((card, index) => (
           <TeamCard key={index} image={card.image} name={card.name} title={card.title} />
         ))}

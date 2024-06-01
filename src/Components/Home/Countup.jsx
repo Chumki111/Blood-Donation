@@ -26,11 +26,11 @@ const Countup = () => {
 
             >
                 <div className="opacity-60"></div>
-                <div className="text-center  w-full container">
+                <div className="text-center mx-auto w-full container">
                     <div className="">
                         <div className="pt-14">
                             <ScrollTrigger onEnter={() => setCounter(true)} onExit={() => setCounter(false)}>
-                                <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-7 text-white">
+                                <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-14 text-white">
                                     {/* first card */}
 
                                     <div className=" text-center space-y-3 rounded">

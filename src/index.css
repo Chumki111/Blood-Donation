@@ -4,13 +4,17 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.primary-color{
+  color: #EB2C29
+}
 @layer base {
   * {
     @apply box-border p-0 m-0;
   }
   
   body {
-    @apply font-poppins bg-gray-100 text-gray-700;
+    @apply font-poppins ;
   }
   
   img {
