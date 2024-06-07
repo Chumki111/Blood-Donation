@@ -19,9 +19,9 @@
 
 // export default TeamCard
 
-import { FaFacebook } from 'react-icons/fa';
-import { FaLinkedin } from 'react-icons/fa6';
-
+import { FaFacebookF } from "react-icons/fa";
+import { FaLinkedinIn } from "react-icons/fa6";
+import { FaDiscord } from "react-icons/fa6";
 const TeamCard = ({ image, name, title }) => {
   return (
     <div className="relative group bg-white border-4 shadow border-white p-4 rounded-3xl">
@@ -32,9 +32,10 @@ const TeamCard = ({ image, name, title }) => {
           className="w-80 rounded transform transition-transform duration-300 group-hover:scale-110" 
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded flex flex-col justify-center items-center">
-          <div className="flex justify-center space-x-4">
-            <FaFacebook className="text-white" />
-            <FaLinkedin className="text-white" />
+        <div className="flex justify-center space-x-4 mt-4">
+            <FaFacebookF className="text-white bg-red-600 p-2 rounded-full text-3xl transition-transform duration-300 transform hover:scale-125" />
+            <FaLinkedinIn className="text-white bg-blue-600 p-2 rounded-full text-3xl transition-transform duration-300 transform hover:scale-125" />
+            <FaDiscord className="text-white bg-purple-600 p-2 rounded-full text-3xl transition-transform duration-300 transform hover:scale-125" />
           </div>
         </div>
       </div>
