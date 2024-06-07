@@ -54,6 +54,7 @@
 
 // export default SecondSection
 
+import { Link } from 'react-router-dom';
 import image1 from '../../assets/help1.png';
 import image2 from '../../assets/help2.png';
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
@@ -100,9 +101,11 @@ const SecondSection = () => {
             </div>
           </div>
           <div className='pt-5'>
-            <button className="px-3 rounded py-3 before:absolute before:block before:inset-0 before:-z-10 before:bg-[#EB2C29] text-white after:block hover:after:w-full after:w-0 after:hover:left-0 after:right-0 after:top-0 after:h-full after:-z-10 after:duration-300 after:bg-black after:absolute relative inline-block">
+           <Link to="/About">
+           <button className="px-3 rounded py-3 before:absolute before:block before:inset-0 before:-z-10 before:bg-[#EB2C29] text-white after:block hover:after:w-full after:w-0 after:hover:left-0 after:right-0 after:top-0 after:h-full after:-z-10 after:duration-300 after:bg-black after:absolute relative inline-block">
               Explore More
             </button>
+           </Link>
           </div>
         </div>
       </div>

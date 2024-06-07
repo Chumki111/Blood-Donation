@@ -13,13 +13,13 @@ const ContactSection = () => {
         <div className="">
           <div className="text-white ">
             <h2 className="text-base font-medium mb-5">Start Donating</h2>
-            <h3 className="text-5xl font-semibold">Call Now : +880-1777250277</h3>
-            <div className="mt-6 flex justify-evenly">
-              <p className="flex items-center gap-2">
+            <h3 className="text-2xl md:text-5xl font-semibold">Call Now : +880-1777250277</h3>
+            <div className=" md:flex justify-evenly">
+              <p className="flex items-center gap-2 mt-6">
                 <MdLocationOn />
                 <span> Rajshahi, Bangladesh</span>
               </p>
-              <p className="flex items-center gap-2">
+              <p className="flex items-center gap-2 mt-6">
                 <MdMarkEmailRead />
                 <span>chumkikhatun370@gmail.com</span>
               </p>
