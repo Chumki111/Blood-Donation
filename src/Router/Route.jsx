@@ -16,6 +16,7 @@ import DonationRequest from "../Pages/DonationRequest/DonationRequest";
 import DonationRequestDetail from "../Pages/DonationRequest/DonationRequestDetail";
 import EditRequest from "../Pages/Dashboard/Donar/EditRequest";
 import AllUsers from "../Pages/Dashboard/Admin/AllUsers";
+import About from "../Pages/About/About";
 
 const Router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const Router = createBrowserRouter([
       {
         path: '/',
         element: <Home />
+      },
+      {
+        path:'About',
+        element:<About/>
       },
       {
         path: 'Blogs',

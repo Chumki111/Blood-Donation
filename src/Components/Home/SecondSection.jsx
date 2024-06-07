@@ -60,7 +60,8 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
 const SecondSection = () => {
   return (
-    <div className='mx-4 my-6 md:mx-10 md:my-10'>
+    <div className='flex justify-center items-center'>
+      <div className='px-10 md:mx-20 mt-16'>
       <div className='flex flex-col md:flex-row gap-6 md:gap-12'>
         <div className="relative border-primary-color">
           <img src={image1} alt="First Image" className="block w-full md:w-auto" />
@@ -105,6 +106,7 @@ const SecondSection = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

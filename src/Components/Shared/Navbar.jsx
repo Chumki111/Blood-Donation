@@ -19,8 +19,8 @@ import { BiSolidDonateBlood } from 'react-icons/bi';
 import useAuth from "../../Hooks/useAuth";
 
 
-const pages = ["Home","Donation Requests", "Blogs","Payment"];
-const nonpages = ["Home","Donation Requests", "Blogs"];
+const pages = ["Home","Donation Requests", "Blogs","Payment","About"];
+const nonpages = ["Home","Donation Requests", "Blogs","About"];
 const settings = ["Profile","Dashboard"];
 
 
@@ -59,7 +59,7 @@ function NavBar() {
       <Container maxWidth="lg">
         <Toolbar disableGutters>
           <div className="flex items-center">
-            <BiSolidDonateBlood className="hidden md:flex text-[45px] text-white" />
+            <BiSolidDonateBlood className="hidden md:flex text-3xl text-white" />
             <Typography
               variant="h6"
               noWrap
