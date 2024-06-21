@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom'
 import image from '../../assets/doctor.jpg'
 
+
+
 const SectionOne = () => {
+    
   return (
     <div className="px-10 md:mx-20 py-10">
        <div className="flex justify-center items-center">
@@ -22,6 +25,8 @@ const SectionOne = () => {
       </div>
         </div>
        </div>
+       {/* countUp section */}
+      
     </div>
   )
 }
