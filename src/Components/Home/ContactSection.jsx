@@ -3,7 +3,7 @@ import { MdMarkEmailRead } from "react-icons/md";
 const ContactSection = () => {
   return (
     <div
-      className="h-[400px] bg-cover bg-center relative"
+      className="h-[400px] bg-cover bg-center relative mt-5"
       style={{ backgroundImage: 'url(https://i.ibb.co/LZpKvJp/call.jpg)' }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-80"></div>
