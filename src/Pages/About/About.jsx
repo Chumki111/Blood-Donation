@@ -1,8 +1,15 @@
+import SectionOne from "../../Components/About/SectionOne"
+import ContactSection from "../../Components/Home/ContactSection"
+import TeamMember from "../../Components/Home/TeamMember"
 
 
 const About = () => {
   return (
-    <div className="px-10 mx-20 mt-16">About</div>
+    <div className="mt-16">
+      <SectionOne/>
+      <ContactSection/>
+      <TeamMember/>
+    </div>
   )
 }
 

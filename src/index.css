@@ -8,6 +8,14 @@
 .primary-color{
   color: #EB2C29
 }
+/* styles.css */
+.dark-black {
+  background-color: #0d0d0d; /* Darker black */
+}
+
+.light-black {
+  background-color: #1a1a1a; /* Lighter black */
+}
 @layer base {
   * {
     @apply box-border p-0 m-0;
