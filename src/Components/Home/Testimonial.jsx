@@ -39,12 +39,13 @@ const Testimonial = () => {
                             <div className="flex justify-center items-center">
                                 <img src={testimonial.image} alt="avatar" className="w-24 h-24 rounded-full object-cover my-5" />
                             </div>
-                            <div className="flex gap-3 justify-center items-center pb-7">
+                            <div className="flex flex-col  md:flex-row gap-3 justify-center items-center pb-7">
                                 <h3 className="font-medium text-xl">{testimonial.name}</h3>
                                 <span>{testimonial.
                                     profession}</span>
                             </div>
                         </div>
+                        
                     </SwiperSlide>)
                 }
             </Swiper>
