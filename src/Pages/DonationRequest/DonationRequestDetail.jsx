@@ -3,6 +3,7 @@ import { donationStatusChange } from "../../api/donations";
 import toast from "react-hot-toast";
 import { useState } from "react";
 import { FaArrowsSpin } from "react-icons/fa6";
+import PrimaryHero from "../../Components/Hero/PrimaryHero";
 
 const DonationRequestDetail = () => {
     const navigate = useNavigate()
@@ -31,6 +32,7 @@ const DonationRequestDetail = () => {
   }
   return (
     <>
+    <PrimaryHero text="Donation Request Details"/>
     <div className="mx-20 my-6">
      <h2 className="font-semibold text-2xl sm:text-xl md:text-4xl lg:text-4xl mt-3 text-red-500 text-center">Donation Information</h2>
      <div className="flex mt-12 ml-6 flex-col gap-4">

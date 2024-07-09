@@ -4,6 +4,7 @@ import { getPendingDonations } from "../../api/donations";
 import RequestDataRow from "../../Components/Table/RequestDataRow";
 import { useQuery } from "@tanstack/react-query";
 import { FaArrowsSpin } from "react-icons/fa6";
+import PrimaryHero from "../../Components/Hero/PrimaryHero";
 
 
 const DonationRequest = () => {
@@ -25,7 +26,9 @@ const DonationRequest = () => {
   })
   return (
     <>
+    <PrimaryHero text="Donation Requests"/>
       <div className="px-10 mx-20 mt-16">
+        
         <h2 className="text-center font-semibold text-4xl my-5">Welcome back <span className="text-red-500">{user?.displayName}</span></h2>
         {isLoading ? (
         <div className="flex justify-center items-center h-screen">
