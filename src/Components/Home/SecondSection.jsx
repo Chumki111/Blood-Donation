@@ -102,7 +102,7 @@ const SecondSection = () => {
           </div>
           <div className='pt-5'>
            <Link to="/About">
-           <button className="px-3 rounded py-3 before:absolute before:block before:inset-0 before:-z-10 before:bg-primary text-white after:block hover:after:w-full after:w-0 after:hover:left-0 after:right-0 after:top-0 after:h-full after:-z-10 after:duration-300 after:bg-black after:absolute relative inline-block">
+           <button className="px-5 rounded-md py-3 before:absolute before:block before:inset-0 before:-z-10 before:bg-primary text-white after:block hover:after:w-full after:w-0 after:hover:left-0 after:right-0 after:top-0 after:h-full after:-z-10 after:duration-300 after:bg-black after:absolute relative inline-block">
               Explore More
             </button>
            </Link>

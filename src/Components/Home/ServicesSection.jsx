@@ -13,7 +13,7 @@ const ServicesSection = () => {
         <div className="flex flex-col">
             <div className="px-10 md:mx-20 mt-16">
                 <Heading heading="Our Best Services" subHeading="WHAT WE DO" />
-                <div className="grid grid-cols-1 gap-6">
+                <div className="grid grid-cols-1 gap-6 mt-10">
                     {services?.map((service, index) => (
                         <div
                             key={service._id}
