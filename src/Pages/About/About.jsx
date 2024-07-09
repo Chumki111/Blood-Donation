@@ -10,7 +10,7 @@ const About = () => {
   
   return (
     <div className="">
-      <PrimaryHero/>
+      <PrimaryHero text="About Us"/>
       <SectionOne/>
       <CountUpSection/>
       <SecondSection/>

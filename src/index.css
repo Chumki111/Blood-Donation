@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 
-.primary-color{
+.primary_color{
   color: #EB2C29
 }
 /* styles.css */
@@ -16,7 +16,7 @@
 .light-black {
   background-color: #1a1a1a; /* Lighter black */
 }
-@layer base {
+/* @layer base {
   * {
     @apply box-border p-0 m-0;
   }
@@ -65,4 +65,4 @@
       overflow: hidden;
     }
   }
-}
+} */
