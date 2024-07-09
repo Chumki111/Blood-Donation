@@ -17,7 +17,7 @@ const Countup = () => {
             <Parallax
                 blur={6}
                 bgImage={
-                    "https://i.ibb.co/sF7Lpkr/couple-making-heart-shape-from-hands-sea-shore-23-2148019890.jpg"
+                    "https://i.postimg.cc/7YJtJCQx/couple-making-heart-shape-from-hands-sea-shore-23-2148019890.jpg"
 
                 }
                 bgImageAlt="the cat"
