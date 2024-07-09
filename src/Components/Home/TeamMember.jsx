@@ -61,7 +61,7 @@ const TeamMember = () => {
   ];
 
   return (
-    <div>
+    <div className='mt-12'>
       <h2 className="text-red-500 text-center text-xl font-semibold py-3">Team Member</h2>
       <h2 className="text-5xl font-bold text-center py-6">Meet Volunteers</h2>
       <div className="grid place-items-center mx-6 py-5">

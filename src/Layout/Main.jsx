@@ -17,11 +17,11 @@ setTimeout(() =>{
           <FaSpinner className='animate-spin m-auto text-4xl text-[#EB2C29]'/></div>; 
       }
   return (
-    <>
+    <div className="max-w-[100rem] mx-auto">
     <Navbar/>
     <Outlet/>
     <Footer/>
-    </>
+    </div>
   )
 }
 

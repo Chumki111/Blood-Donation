@@ -25,6 +25,7 @@ const Testimonial = () => {
                 <h3 className="text-red-600">TESTIMONIAL</h3>
                 <h2 className="text-5xl py-4">What Our Clients Say</h2>
             </div>
+            
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
@@ -42,7 +43,7 @@ const Testimonial = () => {
                 {/* testimonial map */}
                 {
                     testimonials?.map(testimonial => <SwiperSlide key={testimonial._id}>
-                        <div className='p-8 w-full md:w-[70%] bg-white rounded-md shadow-xl shadow-[#dbf0d0]'>
+                        <div className='w-full lg:w-[70%] md:p-6 lg:p-10   bg-white rounded-md shadow-xl shadow-[#dbf0d0]'>
                             <div className="flex justify-between items-center">
                                 <RiPauseMiniLine className='text-4xl md:text-5xl lg:text-7xl text-third' />
                                 <Rating

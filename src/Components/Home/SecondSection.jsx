@@ -63,10 +63,10 @@ const SecondSection = () => {
   return (
     <div className='flex justify-center items-center'>
       <div className='px-10 md:mx-20 mt-16'>
-      <div className='flex flex-col md:flex-row gap-6 md:gap-12'>
+      <div className='flex flex-col lg:flex-row gap-6 md:gap-12'>
         <div className="relative border-primary-color">
           <img src={image1} alt="First Image" className="block w-full md:w-auto" />
-          <img src={image2} alt="Second Image" className="absolute top-1/2 left-1/2 md:left-[75%] transform -translate-x-1/2 -translate-y-1/2 w-2/3 md:w-auto" />
+          <img src={image2} alt="Second Image" className="absolute top-1/2 left-1/2 md:left-[75%] transform -translate-x-1/3 -translate-y-1/2 w-2/3 md:w-auto" />
         </div>
         <div className='px-4 md:px-8'>
           <h3 className='text-red-500 pt-4 text-lg md:text-xl'>HELP THE PEOPLE IN NEED</h3>

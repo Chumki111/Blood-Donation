@@ -3,9 +3,10 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <div className="mt-10">
+        <div className="mt-12">
             <footer className="flex flex-col">
-                <div className="flex flex-col justify-around gap-5 dark-black py-20 px-6 md:flex-row md:gap-0 items-center text-white">
+                
+                <div className="flex flex-col lg:flex-row justify-around gap-5 dark-black py-20 lg:px-10 md:gap-0 items-center text-white">
                     <div className="">
                         <Link to='/About'>
                             <h2 className="text-4xl font-medium hover:text-red-500">About Us</h2>
@@ -16,7 +17,7 @@ const Footer = () => {
                         <p className="py-5"><span className="font-semibold">Phone</span> : +1(456)657-887, 999</p>
                         <p><span className="font-semibold">Email</span> : contactblood@gmail.com</p>
                     </div>
-                    <div className="cursor-pointer">
+                    <div className="cursor-pointer text-start">
                         <h2 className="text-4xl font-medium">Quick Links</h2>
                        <div className="mt-6">
                        <div className='flex items-center transform hover:translate-x-2 transition duration-300 hover:text-red-500'>
@@ -79,8 +80,9 @@ const Footer = () => {
                 </div>
                 <aside className="dark-black text-white text-center text-sm">
                     <div className="bg-white h-[2px] w-[80%] mx-auto my-4"></div>
-                    <p className="py-10">&copy; 2024 NavigateUI. All Rights Reserved.</p>
+                    <p className="py-10">&copy; 2024 BloodCamp. All Rights Reserved.</p>
                 </aside>
+               
             </footer>
         </div>
     );

@@ -7,7 +7,7 @@ const SectionOne = () => {
     
   return (
     <div className="px-10 md:mx-20 py-10">
-       <div className="flex justify-center items-center">
+       <div className="flex justify-center items-center mt-12">
        <div className="flex flex-col md:flex-row gap-6 md:gap-12">
       <div className="">
         <h2 className='text-xl font-bold pb-7'>We are here not for income, but for outcome</h2>

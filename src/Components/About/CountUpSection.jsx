@@ -5,7 +5,7 @@ import { useState } from "react";
 const CountUpSection = () => {
     const [counter, setCounter] = useState(false);
   return (
-    <div className="py-10 bg-red-600 mb-5">
+    <div className="py-10 bg-red-600 mt-12 ">
     <div className="text-center mx-auto w-full container text-white">
       <ScrollTrigger onEnter={() => setCounter(true)} onExit={() => setCounter(false)}>
         <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-14 py-7">
@@ -47,7 +47,7 @@ const CountUpSection = () => {
           <div className="absolute left-full top-1/2 transform -translate-x-1/2 w-0 h-0 border-t-8 border-t-red-800 border-r-8 border-r-transparent border-l-8 border-l-transparent"></div>
         </div>
       </div> */}
-    <div className=''>
+    {/* <div className=''>
     <div className="relative group flex justify-center">
   <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2  bg-white text-gray-800 text-center text-sm p-3 rounded-lg shadow-md opacity-100 group-hover:bg-red-500 hover:text-white transition duration-300">
   <h2>Registration</h2>
@@ -58,7 +58,7 @@ const CountUpSection = () => {
     <div><span>01</span></div>
   </div>
 </div>
-    </div>
+    </div> */}
   </div>
   )
 }
