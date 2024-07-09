@@ -1,8 +1,11 @@
+import PrimaryHero from "../../Components/Hero/PrimaryHero"
 
 
 const ServiceDetails = () => {
   return (
-    <div>ServiceDetails</div>
+    <div>
+        <PrimaryHero text="Service Details" linkText="Services" linkHref="/Services"/>
+    </div>
   )
 }
 

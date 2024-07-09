@@ -11,32 +11,17 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-
 import { Link, NavLink } from "react-router-dom";
-
 import { Button } from "@mui/material";
 import { BiSolidDonateBlood } from 'react-icons/bi';
 import useAuth from "../../Hooks/useAuth";
-
-
-const pages = ["Home","Donation Requests", "Blogs","Payment","About"];
-const nonpages = ["Home","Donation Requests", "Blogs","About"];
+const pages = ["Home","Donation Requests", "Blogs","Payment","About","Services","Contact"];
+const nonpages = ["Home","Donation Requests", "Blogs","About","Services","Contact"];
 const settings = ["Profile","Dashboard"];
-
-
- 
-
-
 function NavBar() {
-
-  // auth user
+// auth user
   const { user,logOut } = useAuth();
-
-
-
-
-
-  const [anchorElNav, setAnchorElNav] =React.useState(null);
+const [anchorElNav, setAnchorElNav] =React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {

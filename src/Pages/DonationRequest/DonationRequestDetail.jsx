@@ -33,8 +33,8 @@ const DonationRequestDetail = () => {
   return (
     <>
     <PrimaryHero text="Donation Request Details"/>
-    <div className="mx-20 my-6">
-     <h2 className="font-semibold text-2xl sm:text-xl md:text-4xl lg:text-4xl mt-3 text-red-500 text-center">Donation Information</h2>
+    <div className="mx-20 my-6 pt-12">
+     <h2 className="font-semibold text-2xl sm:text-xl md:text-4xl lg:text-4xl mt-3 py-2 text-primary text-center border border-dashed w-[40%] mx-auto">Donation Information</h2>
      <div className="flex mt-12 ml-6 flex-col gap-4">
                 <div className="flex items-start">
                     <p className="text-xl mr-4">
@@ -107,7 +107,7 @@ const DonationRequestDetail = () => {
             </div>
 
             <div onClick={() => handleDonate(_id)} className="flex justify-center items-center my-7">
-                <button className="bg-red-500 hover:bg-red-700 px-6 py-2 rounded-md text-xl font-semibold text-rose-50">{loading ? <FaArrowsSpin className="text-2xl text-rose-50 animate-spin"/>: 'Donate'}</button>
+                <button className="bg-primary hover:bg-red-700 px-6 py-2 rounded-md text-xl font-semibold text-rose-50">{loading ? <FaArrowsSpin className="text-2xl text-rose-50 animate-spin"/>: 'Donate'}</button>
             </div>
              
     </div>
