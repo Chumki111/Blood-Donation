@@ -21,7 +21,7 @@ const Countup = () => {
               <FaAward className="text-6xl text-[#EB2C29]" />
             </div>
             <h2 className="text-5xl font-bold">
-              {counter && <CountUp start={0} end={15} duration={2} delay={0} />}
+              {counter && <CountUp start={0} end={1} duration={2} delay={0} />}
             </h2>
             <h2 className="text-xl font-semibold pb-4">YEAR EXPERIENCE</h2>
           </div>
@@ -30,7 +30,7 @@ const Countup = () => {
               <GiCupidonArrow className="text-6xl text-[#EB2C29]" />
             </div>
             <h2 className="text-5xl font-bold">
-              {counter && <CountUp start={0} end={2645} duration={2} delay={0} />}
+              {counter && <CountUp start={0} end={1211} duration={2} delay={0} />}
             </h2>
             <h2 className="text-xl font-semibold pb-4">HAPPY DONORS</h2>
           </div>
@@ -39,7 +39,7 @@ const Countup = () => {
               <GiTrophyCup className="text-6xl text-[#EB2C29]" />
             </div>
             <h2 className="text-5xl font-bold">
-              {counter && <CountUp start={0} end={75} duration={2} delay={0} />}
+              {counter && <CountUp start={0} end={6} duration={2} delay={0} />}
             </h2>
             <h2 className="text-xl font-semibold pb-4">TOTAL AWARDS</h2>
           </div>

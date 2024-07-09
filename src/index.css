@@ -5,8 +5,9 @@
 @tailwind utilities;
 
 
-.primary_color{
-  color: #EB2C29
+:root {
+  --primary-color: #EB2C29;
+
 }
 /* styles.css */
 .dark-black {

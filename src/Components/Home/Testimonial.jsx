@@ -12,6 +12,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { RiPauseMiniLine } from "react-icons/ri";
 import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
+import Heading from "../Heading/Heading";
 
 const Testimonial = () => {
     const { data: testimonials } = useQuery({
@@ -21,10 +22,7 @@ const Testimonial = () => {
     })
     return (
         <div className="px-10 md:mx-20 py-10">
-            <div className="text-center py-5">
-                <h3 className="text-red-600">TESTIMONIAL</h3>
-                <h2 className="text-5xl py-4">What Our Clients Say</h2>
-            </div>
+             <Heading heading="What Our Clients Say" subHeading="TESTIMONIAL"/>
             
             <Swiper
                 spaceBetween={30}
@@ -45,7 +43,7 @@ const Testimonial = () => {
                     testimonials?.map(testimonial => <SwiperSlide key={testimonial._id}>
                         <div className='w-full lg:w-[70%] md:p-6 lg:p-10   bg-white rounded-md shadow-xl shadow-[#dbf0d0]'>
                             <div className="flex justify-between items-center">
-                                <RiPauseMiniLine className='text-4xl md:text-5xl lg:text-7xl text-third' />
+                                <RiPauseMiniLine className='text-4xl md:text-5xl lg:text-7xl text-primary text-third' />
                                 <Rating
                                     style={{ maxWidth: 180 }}
                                     value={testimonial?.review_star}

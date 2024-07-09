@@ -40,6 +40,7 @@
 // export default TeamMember
 
 import TeamCard from '../Card/TeamCard';
+import Heading from '../Heading/Heading';
 
 const TeamMember = () => {
   const cards = [
@@ -62,8 +63,7 @@ const TeamMember = () => {
 
   return (
     <div className='mt-12'>
-      <h2 className="text-red-500 text-center text-xl font-semibold py-3">Team Member</h2>
-      <h2 className="text-5xl font-bold text-center py-6">Meet Volunteers</h2>
+     <Heading heading="Meet Volunteers" subHeading="Team Member"/>
       <div className="grid place-items-center mx-6 py-5">
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {cards.map((card, index) => (
