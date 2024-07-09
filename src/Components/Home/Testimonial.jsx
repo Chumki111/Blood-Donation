@@ -19,65 +19,53 @@ const Testimonial = () => {
         queryFn: async () => getAllTestimonial()
 
     })
-    console.log(testimonials);
     return (
         <div className="px-10 md:mx-20 py-10">
             <div className="text-center py-5">
                 <h3 className="text-red-600">TESTIMONIAL</h3>
                 <h2 className="text-5xl py-4">What Our Clients Say</h2>
             </div>
-
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
                 autoplay={{
-                  delay: 2500,
-                  disableOnInteraction: false,
+                    delay: 2500,
+                    disableOnInteraction: false,
                 }}
                 pagination={{
-                  clickable: true,
+                    clickable: true,
                 }}
                 navigation={true}
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper py-5"
-              >
-
-            {
-                testimonials?.map(testimonial =>  <SwiperSlide key={testimonial._id}>
-                    <div className='p-8 w-full md:w-[70%] bg-white rounded-md shadow-xl shadow-[#dbf0d0]'>
-                      <div className="flex justify-between items-center">
-  
-                        <RiPauseMiniLine className='text-4xl md:text-5xl lg:text-7xl text-third' />
-  
-                        <Rating
-                          style={{ maxWidth: 180 }}
-                          value={testimonial?.review_star}
-                          readOnly
-                        />
-                      </div>
-                      <p className='text-start  py-5 text-xl text-zinc-400 leading-8'>
-                      {testimonial.review}
-                      </p>
-                      <div className='py-5 flex space-x-4'>
-                        <div className="h-24 w-24">
-                          <img src={testimonial.image} alt="" className='h-full w-full object-contain  rounded-md' />
+            >
+                {/* testimonial map */}
+                {
+                    testimonials?.map(testimonial => <SwiperSlide key={testimonial._id}>
+                        <div className='p-8 w-full md:w-[70%] bg-white rounded-md shadow-xl shadow-[#dbf0d0]'>
+                            <div className="flex justify-between items-center">
+                                <RiPauseMiniLine className='text-4xl md:text-5xl lg:text-7xl text-third' />
+                                <Rating
+                                    style={{ maxWidth: 180 }}
+                                    value={testimonial?.review_star}
+                                    readOnly
+                                />
+                            </div>
+                            <p className='text-start  py-5 text-xl text-zinc-400 leading-8'>
+                                {testimonial.review}
+                            </p>
+                            <div className='py-5 flex space-x-4'>
+                                <div className="h-24 w-24">
+                                    <img src={testimonial.image} alt="" className='h-full w-full object-contain  rounded-md' />
+                                </div>
+                                <div className="pt-2"><h3 className='text-3xl font-semibold text-primary'>{testimonial.name}</h3>
+                                    <span className='text-zinc-400 block text-start pt-1'>{testimonial.
+                                        profession}</span></div>
+                            </div>
                         </div>
-                        <div className="pt-2"><h3 className='text-3xl font-semibold text-primary'>{testimonial.name}</h3>
-                          <span className='text-zinc-400 block text-start pt-1'>{testimonial.
-                                    profession}</span></div>
-                      </div>
-                    </div>
-                  </SwiperSlide>)
-            }
-                
-               
-               
-              </Swiper>
-            
-
-           
-          
-
+                    </SwiperSlide>)
+                }
+            </Swiper>
         </div>
 
     )
