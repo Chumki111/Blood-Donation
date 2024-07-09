@@ -17,6 +17,8 @@ import DonationRequestDetail from "../Pages/DonationRequest/DonationRequestDetai
 import EditRequest from "../Pages/Dashboard/Donar/EditRequest";
 import AllUsers from "../Pages/Dashboard/Admin/AllUsers";
 import About from "../Pages/About/About";
+import ServiceDetails from "../Pages/Services/ServiceDetails";
+import { getSingleService } from "../api/service";
 
 const Router = createBrowserRouter([
   {
@@ -34,6 +36,11 @@ const Router = createBrowserRouter([
       {
         path: 'Blogs',
         element: <Blogs />
+      },
+      {
+       path:'service-details/:id',
+       element:<ServiceDetails/>,
+       loader:({params}) => getSingleService(params.id)
       },
       {
         path: 'Donation Requests',
