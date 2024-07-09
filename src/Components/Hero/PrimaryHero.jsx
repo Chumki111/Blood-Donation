@@ -14,12 +14,12 @@ const PrimaryHero = ({ text, linkText, linkHref }) => {
             <div className="">
               <p className="flex justify-center items-center text-lg gap-2 mt-6">
                 <Link to="/">
-                  <span className="hover:text-[#EB2C29]">Home</span>
+                  <span className="hover:text-[#EB2C29] transition-colors duration-300 ease-in-out">Home</span>
                 </Link>
                 /
                 {linkText && linkHref ? (
                   <>
-                    <Link to={linkHref} className="text-lg text-[#EB2C29] hover:underline">
+                    <Link to={linkHref} className="text-lg  hover:text-[#EB2C29] transition-colors duration-300 ease-in-out">
                       {linkText}
                     </Link>
                     /

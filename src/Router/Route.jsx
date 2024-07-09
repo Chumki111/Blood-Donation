@@ -19,6 +19,7 @@ import AllUsers from "../Pages/Dashboard/Admin/AllUsers";
 import About from "../Pages/About/About";
 import ServiceDetails from "../Pages/Services/ServiceDetails";
 import { getSingleService } from "../api/service";
+import Services from "../Pages/Services/Services";
 
 const Router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const Router = createBrowserRouter([
       {
         path: 'Blogs',
         element: <Blogs />
+      },
+      {
+        path:'services',
+        element:<Services/>
       },
       {
        path:'service-details/:id',
