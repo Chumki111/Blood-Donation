@@ -8,9 +8,9 @@ const ContactSection = () => {
     >
       <div className="absolute inset-0 bg-black bg-opacity-80"></div>
       <div className="relative flex items-center justify-center h-full text-center text-neutral-content py-10">
-        <div className="border border-dotted border-[#EB2C29] lg:px-52 md:px-28 px-8 py-14">
+        <div className="border border-dotted border-primary lg:px-52 md:px-28 px-8 py-14">
           <div className="text-white ">
-            <h2 className="text-base font-medium mb-5 text-[#EB2C29]">Start Donating</h2>
+            <h2 className="font-medium mb-5 text-primary">Start Donating</h2>
             <h3 className="text-2xl md:text-5xl font-semibold">Call Now : +880-1777250277</h3>
             <div className=" md:flex justify-evenly">
               <p className="flex items-center gap-2 mt-6">

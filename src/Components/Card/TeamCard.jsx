@@ -33,13 +33,13 @@ const TeamCard = ({ image, name, title }) => {
         />
         <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 rounded flex flex-col justify-center items-center">
         <div className="flex justify-center space-x-4 mt-4">
-            <FaFacebookF className="text-white bg-red-600 p-2 rounded-full text-3xl transition-transform duration-300 transform hover:scale-125" />
-            <FaLinkedinIn className="text-white bg-red-600 p-2 rounded-full text-3xl transition-transform duration-300 transform hover:scale-125" />
-            <FaDiscord className="text-white bg-red-600 p-2 rounded-full text-3xl transition-transform duration-300 transform hover:scale-125" />
+            <FaFacebookF className="text-white bg-primary p-2 rounded-full text-3xl transition-transform duration-300 transform hover:scale-125" />
+            <FaLinkedinIn className="text-white bg-primary p-2 rounded-full text-3xl transition-transform duration-300 transform hover:scale-125" />
+            <FaDiscord className="text-white bg-primary p-2 rounded-full text-3xl transition-transform duration-300 transform hover:scale-125" />
           </div>
         </div>
       </div>
-      <h2 className="text-xl font-medium text-center my-3 hover:text-red-500">{name}</h2>
+      <h2 className="text-xl font-medium text-center my-3 hover:text-primary">{name}</h2>
       <h2 className="text-sm text-center mb-1">{title}</h2>
     </div>
   );

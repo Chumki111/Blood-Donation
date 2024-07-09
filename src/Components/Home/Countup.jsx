@@ -18,7 +18,7 @@ const Countup = () => {
         <div className="grid grid-cols-1 lg:grid-cols-4 md:grid-cols-2 gap-14 py-7">
           <div className="text-center">
             <div className="flex justify-center items-center pb-4">
-              <FaAward className="text-6xl text-[#EB2C29]" />
+              <FaAward className="text-6xl text-primary" />
             </div>
             <h2 className="text-5xl font-bold">
               {counter && <CountUp start={0} end={1} duration={2} delay={0} />}
@@ -27,7 +27,7 @@ const Countup = () => {
           </div>
           <div className="text-center">
             <div className="flex justify-center items-center pb-4">
-              <GiCupidonArrow className="text-6xl text-[#EB2C29]" />
+              <GiCupidonArrow className="text-6xl text-primary" />
             </div>
             <h2 className="text-5xl font-bold">
               {counter && <CountUp start={0} end={1211} duration={2} delay={0} />}
@@ -36,7 +36,7 @@ const Countup = () => {
           </div>
           <div className="text-center">
             <div className="flex justify-center items-center pb-4">
-              <GiTrophyCup className="text-6xl text-[#EB2C29]" />
+              <GiTrophyCup className="text-6xl text-primary" />
             </div>
             <h2 className="text-5xl font-bold">
               {counter && <CountUp start={0} end={6} duration={2} delay={0} />}
@@ -45,7 +45,7 @@ const Countup = () => {
           </div>
           <div className="text-center">
             <div className="flex justify-center items-center pb-4">
-              <FiUsers className="text-6xl text-[#EB2C29]" />
+              <FiUsers className="text-6xl text-primary" />
             </div>
             <h2 className="text-5xl font-bold">
               {counter && <CountUp start={0} end={3624} duration={2} delay={0} />}
