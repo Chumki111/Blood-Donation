@@ -4,7 +4,7 @@ const ServiceCard = ({ service, reverse, index }) => {
   return (
     <div className={`flex ${reverse ? 'flex-col lg:flex-row-reverse text-right' : 'flex-col lg:flex-row'} items-start lg:gap-10`}>
       {/* image section */}
-      <img src={service.image} alt={service.title} className="w-full  h-[60%] lg:h-[90%] object-cover lg:mb-4 rounded-lg" />
+      <img src={service.image} alt={service.title} className="w-full  h-[60%] lg:h-[90%] object-cover lg:mb-4 rounded-lg transition duration-300 hover:scale-90" />
       {/* text section */}
       <div className="flex flex-col ml-4 lg:py-5">
         <h1 className="text-[#e7e7e7] text-6xl md:text-7xl font-bold py-4">0{index + 1}</h1>

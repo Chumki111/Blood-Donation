@@ -20,11 +20,13 @@ import About from "../Pages/About/About";
 import ServiceDetails from "../Pages/Services/ServiceDetails";
 import { getSingleService } from "../api/service";
 import Services from "../Pages/Services/Services";
+import ErrorPage from "../Pages/Error/ErrorPage";
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement:<ErrorPage/>,
     children: [
       {
         path: '/',
