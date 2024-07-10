@@ -8,7 +8,7 @@ const ServiceDetails = () => {
   const service = useLoaderData();
   return (
     <div>
-        <PrimaryHero text="Service Details" linkText="Services" linkHref="/services"/>
+        <PrimaryHero text="Service Details"/>
         <div className="flex flex-col">
           <div className="px-10 md:mx-20 mt-16">
              <div className="flex flex-col lg:flex-row space-x-6">

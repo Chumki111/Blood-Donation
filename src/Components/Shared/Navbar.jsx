@@ -1,5 +1,3 @@
-
-
 import * as React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -15,18 +13,20 @@ import { Link, NavLink } from "react-router-dom";
 import { Button } from "@mui/material";
 import { BiSolidDonateBlood } from 'react-icons/bi';
 import useAuth from "../../Hooks/useAuth";
-const pages = ["Home","Donation Requests", "Blogs","Payment","About","Services","Contact"];
-const nonpages = ["Home","Donation Requests", "Blogs","About","Services","Contact"];
-const settings = ["Profile","Dashboard"];
+
+const pages = ["Home", "Donation Requests", "Blogs", "Payment", "About", "Contact"];
+const nonpages = ["Home", "Donation Requests", "Blogs", "About", "Contact"];
+const settings = ["Profile", "Dashboard"];
+
 function NavBar() {
-// auth user
-  const { user,logOut } = useAuth();
-const [anchorElNav, setAnchorElNav] =React.useState(null);
+  const { user, logOut } = useAuth();
+  const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
@@ -49,7 +49,7 @@ const [anchorElNav, setAnchorElNav] =React.useState(null);
               variant="h6"
               noWrap
               component="a"
-              href="#app-bar-with-responsive-menu"
+              href="/"
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },
@@ -65,7 +65,6 @@ const [anchorElNav, setAnchorElNav] =React.useState(null);
           </div>
 
           {/* responsive  */}
-
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -96,14 +95,18 @@ const [anchorElNav, setAnchorElNav] =React.useState(null);
               }}
             >
               {user
-                ? pages?.map((page) => (
+                ? pages.map((page) => (
                     <MenuItem key={page} onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{page}</Typography>
+                      <NavLink to={page === "Home" ? "/" : `/${page}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Typography textAlign="center">{page}</Typography>
+                      </NavLink>
                     </MenuItem>
                   ))
-                : nonpages?.map((page) => (
+                : nonpages.map((page) => (
                     <MenuItem key={page} onClick={handleCloseNavMenu}>
-                      <Typography textAlign="center">{page}</Typography>
+                      <NavLink to={page === "Home" ? "/" : `/${page}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <Typography textAlign="center">{page}</Typography>
+                      </NavLink>
                     </MenuItem>
                   ))}
             </Menu>
@@ -113,7 +116,7 @@ const [anchorElNav, setAnchorElNav] =React.useState(null);
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -136,33 +139,25 @@ const [anchorElNav, setAnchorElNav] =React.useState(null);
             }}
           >
             {user
-              ? pages?.map((page) => (
+              ? pages.map((page) => (
                   <NavLink
                     key={page}
                     onClick={handleCloseNavMenu}
                     to={page === "Home" ? "/" : `/${page}`}
                     className={({ isActive, isPending }) =>
-                      isPending
-                        ? "pending"
-                        : isActive
-                        ? "border-y-4  border-white "
-                        : ""
+                      isPending ? "pending" : isActive ? "border-y-4 border-white" : ""
                     }
                   >
                     <p className="px-4 py-2">{page}</p>
                   </NavLink>
                 ))
-              : nonpages?.map((page) => (
+              : nonpages.map((page) => (
                   <NavLink
                     key={page}
                     onClick={handleCloseNavMenu}
                     to={page === "Home" ? "/" : `/${page}`}
                     className={({ isActive, isPending }) =>
-                      isPending
-                        ? "pending"
-                        : isActive
-                        ? "border-y-4  border-white "
-                        : ""
+                      isPending ? "pending" : isActive ? "border-y-4 border-white" : ""
                     }
                   >
                     <p className="px-4 py-2">{page}</p>
@@ -177,7 +172,7 @@ const [anchorElNav, setAnchorElNav] =React.useState(null);
                   {user && (
                     <img
                       className="w-[50px] h-[50px] rounded-full object-cover"
-                      src={user?.photoURL}
+                      src={user.photoURL}
                       alt=""
                     />
                   )}
@@ -201,12 +196,10 @@ const [anchorElNav, setAnchorElNav] =React.useState(null);
               >
                 {settings.map((setting) => (
                   <NavLink
-                  to={`/dashboard/${setting === "Dashboard" ? "" : setting.toLowerCase()}`}
+                    to={`/dashboard/${setting === "Dashboard" ? "" : setting.toLowerCase()}`}
                     key={setting}
                     onClick={handleCloseUserMenu}
-                    className={({ isActive, isPending }) =>
-                      isPending ? "pending" : isActive ? "active" : ""
-                    }
+                    style={{ textDecoration: 'none', color: 'inherit' }}
                   >
                     <MenuItem>
                       <Typography textAlign="center">{setting}</Typography>
@@ -214,18 +207,14 @@ const [anchorElNav, setAnchorElNav] =React.useState(null);
                   </NavLink>
                 ))}
                 <MenuItem>
-                  <Button
-                    onClick={logOut}
-                    textAlign="center"
-                    
-                  >
+                  <Button onClick={logOut} textAlign="center">
                     Logout
                   </Button>
                 </MenuItem>
               </Menu>
             </Box>
           ) : (
-            <div className=" flex gap-8">
+            <div className="flex gap-8">
               <Link to="/register">
                 <button
                   type="button"
@@ -249,4 +238,5 @@ const [anchorElNav, setAnchorElNav] =React.useState(null);
     </AppBar>
   );
 }
+
 export default NavBar;
