@@ -6,14 +6,14 @@ const LeftSide = ({ service }) => {
     return (
         <div>
             <div className="">
-                <h1 className="text-5xl font-bold pb-10">{service.title_1}</h1>
+                <h1 className="text-3xl pt-10 lg:pt-0 md:text-5xl font-bold pb-10">{service.title_1}</h1>
                 <p className="text-gray-600 text-justify pb-10">{service.description_2}</p>
 
 
                 <img src={service.image} alt="" className="w-full h-full object-contain rounded-md" />
                 <h1 className="text-4xl font-semibold pt-10" >{service.title_2}</h1>
                 <p className="text-gray-600 text-justify pt-10">{service.description_3_3}</p>
-                <div className="flex space-x-5 py-10">
+                <div className="flex flex-col lg:flex-row items-center space-y-5 lg:space-x-5 py-10">
                     {/* <img src={image_2} alt="" />
             <img src={image_3} alt="" /> */}
                     <img src={service.image_1} alt="" className="w-[390px] h-[300px] rounded-md" />
