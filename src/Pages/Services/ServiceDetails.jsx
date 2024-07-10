@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom"
 import PrimaryHero from "../../Components/Hero/PrimaryHero"
 import RightSide from "../../Components/Service/RightSide";
+import LeftSide from "../../Components/Service/LeftSide";
 
 
 const ServiceDetails = () => {
@@ -15,9 +16,7 @@ const ServiceDetails = () => {
               <RightSide/>
                {/* left side */}
                <div className="flex-1">
-                   <div className="">
-                   <h2>{service.title_1}</h2>
-                   </div>
+                   <LeftSide service={service}/>
                </div>
              </div>
           </div>
