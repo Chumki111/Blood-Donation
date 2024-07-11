@@ -18,6 +18,14 @@
 .light-black {
   background-color: #1a1a1a; /* Lighter black */
 }
+.scroll-to-top {
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
 /* @layer base {
   * {
     @apply box-border p-0 m-0;
