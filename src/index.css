@@ -19,12 +19,19 @@
   background-color: #1a1a1a; /* Lighter black */
 }
 .scroll-to-top {
-  
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  background-color: #EB2C29;
+  color: white;
+  border-radius: 50%;
 }
+
+.scroll-to-top:hover {
+  background-color: #c62828; /* Darker shade on hover */
+}
+
 
 /* @layer base {
   * {

@@ -24,19 +24,29 @@ const Banner = () => {
           </h2>
 
           {/* Banner action */}
-          <div className="mt-5 flex md:flex-row max-w-[450px] mx-auto justify-center gap-2 flex-col">
-            <div className="md:mr-auto md:ml-0 lg:w-[45%]">
-              <button className="bg-[#EB2C29] sm:py-3 py-2 sm:text-base text-sm px-4 text-white rounded-lg h-full w-full">Search A Donar</button>
+          <div className="mt-5 flex md:flex-row max-w-[450px] mx-auto justify-center gap-7 items-center flex-col">
+            <div className="">
+              {/* 1 st button */}
+              <Link to='/register'>
+              <button className="relative px-5 py-3 text-white bg-primary rounded-md overflow-hidden group">
+                  <span className="relative z-10">Search A Donar</span>
+                  <span className="absolute inset-0 bg-black transition-transform duration-300 transform scale-x-0 group-hover:scale-x-100 origin-left z-0"></span>
+                </button>
+                </Link>
             </div>
-            <div className="md:mr-auto md:ml-0 lg:w-[45%]">
+            <div className="">
               
               <Link to='/register'>
-                <button className="bg-[#EB2C29] sm:py-3 py-2 sm:text-base text-sm px-4 text-white rounded-lg h-full w-full">Get Started</button>
+              <button className="relative px-10 py-3 text-white bg-black rounded-md overflow-hidden group">
+                  <span className="relative z-10">Get Started</span>
+                  <span className="absolute inset-0 bg-primary transition-transform duration-300 transform scale-x-0 group-hover:scale-x-100 origin-left z-0"></span>
+                </button>
               </Link>
             </div>
           </div>
         </div>
       </div>
+     
     </div>
   )
 }

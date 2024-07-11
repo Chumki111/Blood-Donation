@@ -1,5 +1,6 @@
 import ContactSection from "../../Components/Home/ContactSection";
 import Countup from "../../Components/Home/Countup";
+import DonationProcess from "../../Components/Home/DonationProcress";
 import SecondSection from "../../Components/Home/SecondSection";
 import ServicesSection from "../../Components/Home/ServicesSection";
 import TeamMember from "../../Components/Home/TeamMember";
@@ -11,6 +12,7 @@ const Home = () => {
  return (
     <div>
       <Banner />
+      <DonationProcess/>
       <SecondSection />
       <Countup />
       <ServicesSection />
