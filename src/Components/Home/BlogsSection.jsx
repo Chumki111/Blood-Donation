@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
 import Heading from "../Heading/Heading"
 import { getAllBlogs } from "../../api/blogs"
+import BlogCard from "../Card/BlogCard"
 
 
 const BlogsSection = () => {
@@ -16,6 +17,9 @@ const BlogsSection = () => {
           subHeading="Our Blogs" 
           heading="Checkout Our Latest Blogs" 
         />
+        <div className="flex">
+            {blogs?.slice(0,3)?.map(blog => <BlogCard key={blog._id} blog={blog}/>)}
+        </div>
     </div>
   </section>
   )
