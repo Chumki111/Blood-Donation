@@ -28,9 +28,6 @@
   border-radius: 50%;
 }
 
-.scroll-to-top:hover {
-  background-color: #c62828; /* Darker shade on hover */
-}
 
 
 /* @layer base {

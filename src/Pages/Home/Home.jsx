@@ -1,3 +1,4 @@
+import BlogsSection from "../../Components/Home/BlogsSection";
 import ContactSection from "../../Components/Home/ContactSection";
 import Countup from "../../Components/Home/Countup";
 import DonationProcess from "../../Components/Home/DonationProcress";
@@ -19,6 +20,7 @@ const Home = () => {
       <ContactSection />
       <Testimonial />
       <TeamMember />
+      <BlogsSection/>
     </div>
   );
 }
