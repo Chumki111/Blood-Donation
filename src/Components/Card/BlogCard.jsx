@@ -6,10 +6,10 @@ const BlogCard = ({ blog }) => {
   return (
     <div className="bg-white group relative">
       {/* Image section */}
-      <div className="relative">
-        <img src={blog.image} alt="" className="w-full h-[275px] object-cover transition-opacity duration-300" />
+      <div className="relative overflow-hidden">
+        <img src={blog.image} alt="" className="w-full h-[275px] object-cover duration-300 group-hover:scale-110 transform transition-transform" />
         {/* Hover effect for the image */}
-        <div className="absolute inset-0 bg-black opacity-0 bg-opacity-50 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+        <div className="absolute inset-0 bg-black opacity-0 bg-opacity-50 group-hover:opacity-100  transition-opacity duration-300 flex justify-center items-center">
           <FaPlus className="text-white text-3xl" />
         </div>
       </div>
