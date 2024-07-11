@@ -1,9 +1,42 @@
+import { MdOutlineWatchLater } from "react-icons/md";
+import { FaComments, FaPlus } from "react-icons/fa";
+import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
-
-const BlogCard = ({blog}) => {
+const BlogCard = ({ blog }) => {
   return (
-    <div>BlogCard : {blog.author}</div>
-  )
-}
+    <div className="bg-white group relative">
+      {/* Image section */}
+      <div className="relative">
+        <img src={blog.image} alt="" className="w-full h-[275px] object-cover transition-opacity duration-300" />
+        {/* Hover effect for the image */}
+        <div className="absolute inset-0 bg-black opacity-0 bg-opacity-50 group-hover:opacity-100 transition-opacity duration-300 flex justify-center items-center">
+          <FaPlus className="text-white text-3xl" />
+        </div>
+      </div>
 
-export default BlogCard
+      {/* Blog details section */}
+      <div className="flex space-x-5 text-primary pt-3 px-3">
+        <p className="flex items-center space-x-2">
+          <MdOutlineWatchLater />
+          <span>{blog.date}</span>
+        </p>
+        <p className="flex items-center space-x-2">
+          <FaComments />
+          <span>{blog.comments?.length} comments</span>
+        </p>
+      </div>
+      <div className="px-3">
+        <h2 className="text-2xl font-semibold text-start pt-3">{blog.title}</h2>
+        <p className="max-w-sm text-sm text-justify pt-2">{blog.content}</p>
+        <div className="text-start py-6 px-4 group-hover:text-primary">
+          <button className="flex items-center text-lg">
+            <span>Read More</span>
+            <MdKeyboardDoubleArrowRight />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BlogCard;
