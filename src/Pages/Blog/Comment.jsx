@@ -1,6 +1,6 @@
 
 
-const Comment = ({comments}) => {
+const Comment = ({comments,handleSubmit}) => {
   return (
     <div className="mt-6">
     <h2 className="text-xl font-semibold">{comments?.length} comments</h2>
@@ -24,6 +24,36 @@ const Comment = ({comments}) => {
         </div>
       ))}
     </div>
+
+    <div className="mt-6">
+          <h2 className="text-2xl font-semibold">Add a Comment</h2>
+          <form onSubmit={handleSubmit} className="mt-4 space-y-4 shadow-md px-6 py-4">
+            <div>
+              <label className="block text-gray-700">Name</label>
+              <input
+                type="text"
+                name="users"
+                className="mt-1 p-2 border rounded-md w-full"
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-gray-700">Comment</label>
+              <textarea
+                name="comment"
+                className="mt-1 p-2 border rounded-md w-full"
+                rows="4"
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              className="bg-primary text-white px-4 py-2 rounded-md hover:bg-red-700 transition-colors duration-200 ease-in-out"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
   </div>
   )
 }
