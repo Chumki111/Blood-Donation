@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 import Footer from "../Components/Shared/Footer";
 import ScrollToTop from "react-scroll-to-top";
-
+// import MessengerCustomerChat from 'react-messenger-customer-chat';
 const Main = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -41,7 +41,11 @@ const Main = () => {
       >
         <div className="text-white text-xl">↑</div>
       </ScrollToTop>
-
+      {/* <MessengerCustomerChat
+    pageId="100093644379500"
+    appId="406465978450964"
+    
+  /> */}
     </div>
   );
 }

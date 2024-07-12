@@ -4,7 +4,7 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 
 const BlogCard = ({ blog }) => {
   return (
-    <div className="bg-white group relative">
+    <div className="bg-white group relative shadow-md rounded-md">
       {/* Image section */}
       <div className="relative overflow-hidden">
         <img src={blog.image} alt="" className="w-full h-[275px] object-cover duration-300 group-hover:scale-110 transform transition-transform" />
