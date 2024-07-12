@@ -1,8 +1,8 @@
-# BloodUnity Donation Platform
+# BloodCamp Donation Platform
 
-BloodUnity is a web platform aimed at connecting blood donors with recipients in need of blood donations. This platform facilitates the process of finding blood donors, making donation requests, and managing donation requests.
+BloodCamp is a web platform aimed at connecting blood donors with recipients in need of blood donations. This platform facilitates the process of finding blood donors, making donation requests, and managing donation requests.
 
-## key Features BloodUnity
+## key Features BloodCamp
 
 1. Donation Requests: Users can create, update, and delete donation requests, specifying details such as recipient name, blood group, hospital name, address, and donation date.
 
@@ -11,6 +11,11 @@ BloodUnity is a web platform aimed at connecting blood donors with recipients in
 3. Payment: BloodUnity allows users to make payments for donations, ensuring a seamless and secure transaction process.
 
 4. Profile Management: Users can update their profiles, providing essential information such as contact details, blood group, and donation history.
+
+- `Blood-Donation.png`
+- `Blood-Donation (1).png`
+- `Blood-Donation (2).png`
+- `Blood-Donation (2).png`
 
 ## Project Setup
 
