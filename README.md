@@ -58,12 +58,8 @@ yarn add react-router-dom
 
 ### Steps to Add Images:
 
+<img src="https://i.postimg.cc/9Q43GmMY/Blood-Donation.png" />
 
-   
-     - `Blood-Donation.png` -> `blood-donation.png`
-     - `Blood-Donation (1).png` -> `blood-donation-1.png`
-     - `Blood-Donation (2).png` -> `blood-donation-2.png`
-     - `Blood-Donation (3).png` -> `blood-donation-3.png`
   
 
 
