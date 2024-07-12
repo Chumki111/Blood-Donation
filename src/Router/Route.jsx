@@ -20,30 +20,37 @@ import About from "../Pages/About/About";
 import ServiceDetails from "../Pages/Services/ServiceDetails";
 import { getSingleService } from "../api/service";
 import ErrorPage from "../Pages/Error/ErrorPage";
+import BlogDetails from "../Pages/Blog/BlogDetails";
+import { getSingleBlog } from "../api/blogs";
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
-    errorElement:<ErrorPage/>,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: '/',
         element: <Home />
       },
       {
-        path:'About',
-        element:<About/>
+        path: 'About',
+        element: <About />
       },
       {
         path: 'Blogs',
         element: <Blogs />
       },
-      
       {
-       path:'service-details/:id',
-       element:<ServiceDetails/>,
-       loader:({params}) => getSingleService(params.id)
+        path: '/blog-details/:id',
+        element: <BlogDetails />,
+        loader: ({ params }) => getSingleBlog(params.id)
+      },
+
+      {
+        path: 'service-details/:id',
+        element: <ServiceDetails />,
+        loader: ({ params }) => getSingleService(params.id)
       },
       {
         path: 'Donation Requests',

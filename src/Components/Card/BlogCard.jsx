@@ -1,6 +1,7 @@
 import { MdOutlineWatchLater } from "react-icons/md";
 import { FaComments, FaPlus } from "react-icons/fa";
 import { MdKeyboardDoubleArrowRight } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const BlogCard = ({ blog }) => {
   return (
@@ -10,7 +11,9 @@ const BlogCard = ({ blog }) => {
         <img src={blog.image} alt="" className="w-full h-[275px] object-cover duration-300 group-hover:scale-110 transform transition-transform" />
         {/* Hover effect for the image */}
         <div className="absolute inset-0 bg-black opacity-0 bg-opacity-50 group-hover:opacity-100  transition-opacity duration-300 flex justify-center items-center">
+          <Link to={`/blog-details/${blog._id}`}>
           <FaPlus className="text-white text-3xl" />
+          </Link>
         </div>
       </div>
 
@@ -29,10 +32,12 @@ const BlogCard = ({ blog }) => {
         <h2 className="text-2xl font-semibold text-start pt-3">{blog.title}</h2>
         <p className="max-w-sm text-sm text-justify pt-2">{blog.content}</p>
         <div className="text-start py-6 px-4 group-hover:text-primary">
+          <Link to={`/blog-details/${blog._id}`}>
           <button className="flex items-center text-lg">
             <span>Read More</span>
             <MdKeyboardDoubleArrowRight />
           </button>
+          </Link>
         </div>
       </div>
     </div>
