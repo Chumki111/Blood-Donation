@@ -12,11 +12,6 @@ BloodCamp is a web platform aimed at connecting blood donors with recipients in 
 
 4. Profile Management: Users can update their profiles, providing essential information such as contact details, blood group, and donation history.
 
-- `Blood-Donation.png`
-- `Blood-Donation (1).png`
-- `Blood-Donation (2).png`
-- `Blood-Donation (2).png`
-
 ## Project Setup
 
 To set up the project locally, follow these steps:
@@ -60,5 +55,16 @@ To install React Router in your project, run:
 npm install react-router-dom
 # or
 yarn add react-router-dom
+
+### Steps to Add Images:
+
+
+   
+     - `Blood-Donation.png` -> `blood-donation.png`
+     - `Blood-Donation (1).png` -> `blood-donation-1.png`
+     - `Blood-Donation (2).png` -> `blood-donation-2.png`
+     - `Blood-Donation (3).png` -> `blood-donation-3.png`
+  
+
 
 
