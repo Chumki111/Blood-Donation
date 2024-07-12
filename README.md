@@ -16,6 +16,7 @@ BloodCamp is a web platform aimed at connecting blood donors with recipients in 
 ## Images
 
 ![Blood Donation](https://i.postimg.cc/9Q43GmMY/Blood-Donation.png)
+![Blood Donation 1](https://i.postimg.cc/nhq28gwt/Blood-Donation-1.png)
 
 
 ## Project Setup
