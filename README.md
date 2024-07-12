@@ -12,6 +12,12 @@ BloodCamp is a web platform aimed at connecting blood donors with recipients in 
 
 4. **Profile Management:** Users can update their profiles, providing essential information such as contact details, blood group, and donation history.
 
+
+## Images
+
+![Blood Donation](https://i.postimg.cc/9Q43GmMY/Blood-Donation.png)
+
+
 ## Project Setup
 
 To set up the project locally, follow these steps:
@@ -58,8 +64,4 @@ yarn add react-router-dom
 
 
 
-### Notes:
 
-1. Ensure the URLs for all images (`https://i.postimg.cc/9Q43GmMY/Blood-Donation.png`, `https://i.postimg.cc/FRVx3z2Z/Blood-Donation-1.png`, `https://i.postimg.cc/W1x3fQgf/Blood-Donation-2.png`, `https://i.postimg.cc/GmhxzyXs/Blood-Donation-3.png`) are correct and accessible. You can test each link by opening it in a browser.
-
-2. GitHub should render these images correctly in the README file if the URLs are valid. If the images still don't display, try using a different image hosting service or ensure there are no restrictions on image access.
